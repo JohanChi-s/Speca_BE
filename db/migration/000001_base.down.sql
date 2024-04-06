@@ -1,0 +1,63 @@
+-- Drop foreign key constraints
+ALTER TABLE "Collection_Tag" DROP CONSTRAINT IF EXISTS "Collection_Tag_tag_id_fkey";
+ALTER TABLE "Collection_Tag" DROP CONSTRAINT IF EXISTS "Collection_Tag_folder_id_fkey";
+ALTER TABLE "Document_Tag" DROP CONSTRAINT IF EXISTS "Document_Tag_tag_id_fkey";
+ALTER TABLE "Document_Tag" DROP CONSTRAINT IF EXISTS "Document_Tag_document_id_fkey";
+ALTER TABLE "Collection_Member" DROP CONSTRAINT IF EXISTS "Collection_Member_member_id_fkey";
+ALTER TABLE "Collection_Member" DROP CONSTRAINT IF EXISTS "Collection_Member_collection_id_fkey";
+ALTER TABLE "Document_Collection" DROP CONSTRAINT IF EXISTS "Document_Collection_collection_id_fkey";
+ALTER TABLE "Document_Collection" DROP CONSTRAINT IF EXISTS "Document_Collection_document_id_fkey";
+ALTER TABLE "Workspace_Document" DROP CONSTRAINT IF EXISTS "Workspace_Document_document_id_fkey";
+ALTER TABLE "Workspace_Document" DROP CONSTRAINT IF EXISTS "Workspace_Document_workspace_id_fkey";
+ALTER TABLE "Team_Document" DROP CONSTRAINT IF EXISTS "Team_Document_document_id_fkey";
+ALTER TABLE "Team_Document" DROP CONSTRAINT IF EXISTS "Team_Document_team_id_fkey";
+ALTER TABLE "Team_Workspace" DROP CONSTRAINT IF EXISTS "Team_Workspace_workspace_id_fkey";
+ALTER TABLE "Team_Workspace" DROP CONSTRAINT IF EXISTS "Team_Workspace_team_id_fkey";
+ALTER TABLE "User_Document" DROP CONSTRAINT IF EXISTS "User_Document_document_id_fkey";
+ALTER TABLE "User_Document" DROP CONSTRAINT IF EXISTS "User_Document_user_id_fkey";
+ALTER TABLE "User_Workspace" DROP CONSTRAINT IF EXISTS "User_Workspace_workspace_id_fkey";
+ALTER TABLE "User_Workspace" DROP CONSTRAINT IF EXISTS "User_Workspace_user_id_fkey";
+ALTER TABLE "User_Team" DROP CONSTRAINT IF EXISTS "User_Team_team_id_fkey";
+ALTER TABLE "User_Team" DROP CONSTRAINT IF EXISTS "User_Team_user_id_fkey";
+ALTER TABLE "Position" DROP CONSTRAINT IF EXISTS "Position_commentsId_fkey";
+ALTER TABLE "Comment" DROP CONSTRAINT IF EXISTS "Comment_parentCommentId_fkey";
+ALTER TABLE "Comment" DROP CONSTRAINT IF EXISTS "Comment_documentId_fkey";
+ALTER TABLE "Comment" DROP CONSTRAINT IF EXISTS "Comment_userId_fkey";
+ALTER TABLE "ActionEvent" DROP CONSTRAINT IF EXISTS "ActionEvent_collectionId_fkey";
+ALTER TABLE "ActionEvent" DROP CONSTRAINT IF EXISTS "ActionEvent_documentId_fkey";
+ALTER TABLE "Member" DROP CONSTRAINT IF EXISTS "Member_collectionId_fkey";
+ALTER TABLE "Member" DROP CONSTRAINT IF EXISTS "Member_userId_fkey";
+ALTER TABLE "Collection" DROP CONSTRAINT IF EXISTS "Collection_ownerUserId_fkey";
+ALTER TABLE "Collection" DROP CONSTRAINT IF EXISTS "Collection_parentCollectionId_fkey";
+ALTER TABLE "Collection" DROP CONSTRAINT IF EXISTS "Collection_workspaceId_fkey";
+ALTER TABLE "Document" DROP CONSTRAINT IF EXISTS "Document_collectionId_fkey";
+ALTER TABLE "Document" DROP CONSTRAINT IF EXISTS "Document_workspaceId_fkey";
+ALTER TABLE "Document" DROP CONSTRAINT IF EXISTS "Document_teamId_fkey";
+ALTER TABLE "Profile" DROP CONSTRAINT IF EXISTS "Profile_userId_fkey";
+
+-- Drop tables
+DROP TABLE IF EXISTS "Collection_Tag";
+DROP TABLE IF EXISTS "Document_Tag";
+DROP TABLE IF EXISTS "Collection_Member";
+DROP TABLE IF EXISTS "Document_Collection";
+DROP TABLE IF EXISTS "Workspace_Document";
+DROP TABLE IF EXISTS "Team_Document";
+DROP TABLE IF EXISTS "Team_Workspace";
+DROP TABLE IF EXISTS "User_Document";
+DROP TABLE IF EXISTS "User_Workspace";
+DROP TABLE IF EXISTS "User_Team";
+DROP TABLE IF EXISTS "Position";
+DROP TABLE IF EXISTS "Comment";
+DROP TABLE IF EXISTS "ActionEvent";
+DROP TABLE IF EXISTS "Member";
+DROP TABLE IF EXISTS "Collection";
+DROP TABLE IF EXISTS "Document";
+DROP TABLE IF EXISTS "Tag";
+DROP TABLE IF EXISTS "User";
+DROP TABLE IF EXISTS "Profile";
+DROP TABLE IF EXISTS "Workspace";
+DROP TABLE IF EXISTS "Team";
+
+-- Drop ENUM types
+DROP TYPE IF EXISTS "EnumActionEventAction";
+DROP TYPE IF EXISTS "EnumCommentStatus";
