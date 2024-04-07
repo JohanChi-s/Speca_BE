@@ -49,7 +49,7 @@ func (s *userService) Register(ctx context.Context, req *v1.RegisterRequest) err
 		return err
 	}
 	user = &model.User{
-		UserId:   userId,
+		ID:       userId,
 		Email:    req.Email,
 		Password: string(hashedPassword),
 	}
@@ -75,7 +75,7 @@ func (s *userService) Login(ctx context.Context, req *v1.LoginRequest) (string, 
 	if err != nil {
 		return "", err
 	}
-	token, err := s.jwt.GenToken(user.UserId, time.Now().Add(time.Hour*24*90))
+	token, err := s.jwt.GenToken(user.ID, time.Now().Add(time.Hour*24*90))
 	if err != nil {
 		return "", err
 	}
@@ -90,8 +90,8 @@ func (s *userService) GetProfile(ctx context.Context, userId string) (*v1.GetPro
 	}
 
 	return &v1.GetProfileResponseData{
-		UserId:   user.UserId,
-		Nickname: user.Nickname,
+		UserId:   user.ID,
+		Username: user.Username,
 	}, nil
 }
 
@@ -102,7 +102,7 @@ func (s *userService) UpdateProfile(ctx context.Context, userId string, req *v1.
 	}
 
 	user.Email = req.Email
-	user.Nickname = req.Nickname
+	user.Username = req.Username
 
 	if err = s.userRepo.Update(ctx, user); err != nil {
 		return err

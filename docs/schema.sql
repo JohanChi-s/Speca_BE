@@ -23,13 +23,13 @@ CREATE TYPE "EnumActionEventAction" AS ENUM ( 'Download',
 );
 
 CREATE TABLE "Tag" (
-  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
+  "id" Text PRIMARY KEY DEFAULT uuid_generate_v4(),
   "name" Text UNIQUE,
   "description" Text
 );
 
 CREATE TABLE "Team" (
-  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
+  "id" Text PRIMARY KEY DEFAULT uuid_generate_v4(),
   "name" Text,
   "avatarUrl" Text,
   "subDomain" Text,
@@ -44,7 +44,7 @@ CREATE TABLE "Team" (
 );
 
 CREATE TABLE "Workspace" (
-  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
+  "id" Text PRIMARY KEY DEFAULT uuid_generate_v4(),
   "name" Text,
   "domain" Text,
   "isPublic" Boolean,
@@ -54,8 +54,8 @@ CREATE TABLE "Workspace" (
 );
 
 CREATE TABLE "Profile" (
-  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
-  "userId" UUID UNIQUE,
+  "id" Text PRIMARY KEY DEFAULT uuid_generate_v4(),
+  "userId" Text UNIQUE,
   "fullName" Text,
   "age" Int,
   "address" Text,
@@ -65,7 +65,7 @@ CREATE TABLE "Profile" (
 );
 
 CREATE TABLE "User" (
-  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
+  "id" Text PRIMARY KEY DEFAULT uuid_generate_v4(),
   "email" Text UNIQUE,
   "username" Text UNIQUE,
   "password" Text,
@@ -82,7 +82,7 @@ CREATE TABLE "User" (
 );
 
 CREATE TABLE "Document" (
-  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
+  "id" Text PRIMARY KEY DEFAULT uuid_generate_v4(),
   "title" Text,
   "text" Text,
   "emoji" Text,
@@ -90,14 +90,14 @@ CREATE TABLE "Document" (
   "isFullWidth" Boolean,
   "createdAt" Timestamp DEFAULT (now()),
   "updatedAt" Timestamp,
-  "authorId" UUID,
-  "teamId" UUID,
-  "workspaceId" UUID,
-  "collectionId" UUID
+  "authorId" Text,
+  "teamId" Text,
+  "workspaceId" Text,
+  "collectionId" Text
 );
 
 CREATE TABLE "Collection" (
-  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
+  "id" Text PRIMARY KEY DEFAULT uuid_generate_v4(),
   "name" Text,
   "description" Text,
   "icon" Text,
@@ -107,43 +107,43 @@ CREATE TABLE "Collection" (
   "downloadPermission" Json,
   "createdAt" Timestamp DEFAULT (now()),
   "updatedAt" Timestamp,
-  "workspaceId" UUID,
-  "parentCollectionId" UUID,
-  "ownerUserId" UUID
+  "workspaceId" Text,
+  "parentCollectionId" Text,
+  "ownerUserId" Text
 );
 
 CREATE TABLE "Member" (
-  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
-  "userId" UUID,
-  "collectionId" UUID,
+  "id" Text PRIMARY KEY DEFAULT uuid_generate_v4(),
+  "userId" Text,
+  "collectionId" Text,
   "role" Json,
   "createdAt" Timestamp DEFAULT (now()),
   "updatedAt" Timestamp
 );
 
 CREATE TABLE "ActionEvent" (
-  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
+  "id" Text PRIMARY KEY DEFAULT uuid_generate_v4(),
   "action" EnumActionEventAction,
   "createdAt" Timestamp DEFAULT (now()),
-  "actor" UUID,
-  "assignee" UUID,
-  "assigner" UUID,
-  "documentId" UUID,
-  "collectionId" UUID
+  "actor" Text,
+  "assignee" Text,
+  "assigner" Text,
+  "documentId" Text,
+  "collectionId" Text
 );
 
 CREATE TABLE "Comment" (
-  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
+  "id" Text PRIMARY KEY DEFAULT uuid_generate_v4(),
   "content" Text,
   "createdAt" Timestamp DEFAULT (now()),
   "updatedAt" Timestamp,
-  "userId" UUID,
-  "documentId" UUID,
-  "parentCommentId" UUID
+  "userId" Text,
+  "documentId" Text,
+  "parentCommentId" Text
 );
 
 CREATE TABLE "Position" (
-  "id" UUID PRIMARY KEY DEFAULT (uuid_generate_v4()),
+  "id" Text PRIMARY KEY DEFAULT uuid_generate_v4(),
   "line" Int,
   "col" Int,
   "toLine" Text,
@@ -151,57 +151,57 @@ CREATE TABLE "Position" (
   "content" Text,
   "createdAt" Timestamp DEFAULT (now()),
   "updatedAt" Timestamp,
-  "commentsId" UUID
+  "commentsId" Text
 );
 
 CREATE TABLE "User_Team" (
-  "user_id" UUID,
-  "team_id" UUID
+  "user_id" Text,
+  "team_id" Text
 );
 
 CREATE TABLE "User_Workspace" (
-  "user_id" UUID,
-  "workspace_id" UUID
+  "user_id" Text,
+  "workspace_id" Text
 );
 
 CREATE TABLE "User_Document" (
-  "user_id" UUID,
-  "document_id" UUID
+  "user_id" Text,
+  "document_id" Text
 );
 
 CREATE TABLE "Team_Workspace" (
-  "team_id" UUID,
-  "workspace_id" UUID
+  "team_id" Text,
+  "workspace_id" Text
 );
 
 CREATE TABLE "Team_Document" (
-  "team_id" UUID,
-  "document_id" UUID
+  "team_id" Text,
+  "document_id" Text
 );
 
 CREATE TABLE "Workspace_Document" (
-  "workspace_id" UUID,
-  "document_id" UUID
+  "workspace_id" Text,
+  "document_id" Text
 );
 
 CREATE TABLE "Document_Collection" (
-  "document_id" UUID,
-  "collection_id" UUID
+  "document_id" Text,
+  "collection_id" Text
 );
 
 CREATE TABLE "Collection_Member" (
-  "collection_id" UUID,
-  "member_id" UUID
+  "collection_id" Text,
+  "member_id" Text
 );
 
 CREATE TABLE "Document_Tag" (
-  "document_id" UUID,
-  "tag_id" UUID
+  "document_id" Text,
+  "tag_id" Text
 );
 
 CREATE TABLE "Collection_Tag" (
-  "folder_id" UUID,
-  "tag_id" UUID
+  "folder_id" Text,
+  "tag_id" Text
 );
 
 COMMENT ON COLUMN "Team"."updatedAt" IS 'Automatically updated by the database';

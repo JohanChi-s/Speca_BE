@@ -18,12 +18,12 @@ type LoginResponse struct {
 }
 
 type UpdateProfileRequest struct {
-	Nickname string `json:"nickname" example:"alan"`
+	Username string `json:"username" example:"alan"`
 	Email    string `json:"email" binding:"required,email" example:"1234@gmail.com"`
 }
 type GetProfileResponseData struct {
 	UserId   string `json:"userId"`
-	Nickname string `json:"nickname" example:"alan"`
+	Username string `json:"username" example:"alan"`
 }
 type GetProfileResponse struct {
 	Response

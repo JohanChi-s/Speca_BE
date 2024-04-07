@@ -2,7 +2,7 @@ package server
 
 import (
 	apiV1 "core_service/api/v1"
-	// "core_service/docs"
+	"core_service/docs"
 	"core_service/internal/handler"
 	"core_service/internal/middleware"
 	"core_service/pkg/jwt"
@@ -30,7 +30,7 @@ func NewHTTPServer(
 	)
 
 	// swagger doc
-	// docs.SwaggerInfo.BasePath = "/v1"
+	docs.SwaggerInfo.BasePath = "/v1"
 	s.GET("/swagger/*any", ginSwagger.WrapHandler(
 		swaggerfiles.Handler,
 		//ginSwagger.URL(fmt.Sprintf("http://localhost:%d/swagger/doc.json", conf.GetInt("app.http.port"))),

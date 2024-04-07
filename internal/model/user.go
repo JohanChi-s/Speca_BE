@@ -1,19 +1,39 @@
 package model
 
 import (
-	"gorm.io/gorm"
 	"time"
 )
 
 type User struct {
-	Id        uint   `gorm:"primarykey"`
-	UserId    string `gorm:"unique;not null"`
-	Nickname  string `gorm:"not null"`
-	Password  string `gorm:"not null"`
-	Email     string `gorm:"not null"`
-	CreatedAt time.Time
-	UpdatedAt time.Time
-	DeletedAt gorm.DeletedAt `gorm:"index"`
+	ID           string `gorm:"primaryKey"`
+	Email        string `gorm:"unique;not null"`
+	Username     string `gorm:"unique;not null"`
+	Password     string `gorm:"not null"`
+	FirstName    string
+	LastName     string
+	IsAdmin      bool
+	IsActive     bool
+	IsViewer     bool
+	Language     string
+	LastActiveAt time.Time
+	Roles        []byte
+	CreatedAt    time.Time
+	UpdatedAt    time.Time `gorm:"autoUpdateTime"`
+}
+
+type UserTeam struct {
+	UserID string `gorm:"primaryKey"`
+	TeamID string `gorm:"primaryKey"`
+}
+
+type UserWorkspace struct {
+	UserID      string `gorm:"primaryKey"`
+	WorkspaceID string `gorm:"primaryKey"`
+}
+
+type UserDocument struct {
+	UserID     string `gorm:"primaryKey"`
+	DocumentID string `gorm:"primaryKey"`
 }
 
 func (u *User) TableName() string {

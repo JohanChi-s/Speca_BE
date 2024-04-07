@@ -1,6 +1,7 @@
 package sid
 
 import (
+	"github.com/google/uuid"
 	"github.com/sony/sonyflake"
 )
 
@@ -22,6 +23,15 @@ func (s Sid) GenString() (string, error) {
 	}
 	return IntToBase62(int(id)), nil
 }
+
 func (s Sid) GenUint64() (uint64, error) {
 	return s.sf.NextID()
+}
+
+func (s Sid) GenUUID() (uid string, er error) {
+	uuid, err := uuid.NewRandom()
+	if err != nil {
+		return "", err
+	}
+	return uuid.String(), nil
 }

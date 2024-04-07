@@ -6,7 +6,7 @@ import (
 )
 
 type ProfileRepository interface {
-	GetProfile(ctx context.Context, id int64) (*model.Profile, error)
+	GetProfile(ctx context.Context, id string) (*model.Profile, error)
 }
 
 func NewProfileRepository(
@@ -21,7 +21,7 @@ type profileRepository struct {
 	*Repository
 }
 
-func (r *profileRepository) GetProfile(ctx context.Context, id int64) (*model.Profile, error) {
+func (r *profileRepository) GetProfile(ctx context.Context, id string) (*model.Profile, error) {
 	var profile model.Profile
 
 	return &profile, nil

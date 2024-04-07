@@ -7,7 +7,7 @@ import (
 )
 
 type ProfileService interface {
-	GetProfile(ctx context.Context, id int64) (*model.Profile, error)
+	GetProfile(ctx context.Context, id string) (*model.Profile, error)
 }
 
 func NewProfileService(service *Service, profileRepository repository.ProfileRepository) ProfileService {
@@ -22,6 +22,6 @@ type profileService struct {
 	profileRepository repository.ProfileRepository
 }
 
-func (s *profileService) GetProfile(ctx context.Context, id int64) (*model.Profile, error) {
+func (s *profileService) GetProfile(ctx context.Context, id string) (*model.Profile, error) {
 	return s.profileRepository.GetProfile(ctx, id)
 }
