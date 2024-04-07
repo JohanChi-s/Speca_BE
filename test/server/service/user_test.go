@@ -160,8 +160,8 @@ func TestUserService_GetProfile(t *testing.T) {
 	userId := "123"
 
 	mockUserRepo.EXPECT().GetByID(ctx, userId).Return(&model.User{
-		UserId: userId,
-		Email:  "test@example.com",
+		ID:    userId,
+		Email: "test@example.com",
 	}, nil)
 
 	user, err := userService.GetProfile(ctx, userId)
@@ -182,13 +182,13 @@ func TestUserService_UpdateProfile(t *testing.T) {
 	ctx := context.Background()
 	userId := "123"
 	req := &v1.UpdateProfileRequest{
-		Nickname: "testuser",
+		Username: "testuser",
 		Email:    "test@example.com",
 	}
 
 	mockUserRepo.EXPECT().GetByID(ctx, userId).Return(&model.User{
-		UserId: userId,
-		Email:  "old@example.com",
+		ID:    userId,
+		Email: "old@example.com",
 	}, nil)
 	mockUserRepo.EXPECT().Update(ctx, gomock.Any()).Return(nil)
 
@@ -209,7 +209,7 @@ func TestUserService_UpdateProfile_UserNotFound(t *testing.T) {
 	ctx := context.Background()
 	userId := "123"
 	req := &v1.UpdateProfileRequest{
-		Nickname: "testuser",
+		Username: "testuser",
 		Email:    "test@example.com",
 	}
 

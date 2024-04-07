@@ -13,6 +13,8 @@ import (
 type UserService interface {
 	Register(ctx context.Context, req *v1.RegisterRequest) error
 	Login(ctx context.Context, req *v1.LoginRequest) (string, error)
+	GetUserInfo(ctx context.Context, req *v1.LoginRequest) (string, error)
+	UpdateUser(ctx context.Context, req *v1.LoginRequest) (string, error)
 	GetProfile(ctx context.Context, userId string) (*v1.GetProfileResponseData, error)
 	UpdateProfile(ctx context.Context, userId string, req *v1.UpdateProfileRequest) error
 }
@@ -27,6 +29,16 @@ func NewUserService(service *Service, userRepo repository.UserRepository) UserSe
 type userService struct {
 	userRepo repository.UserRepository
 	*Service
+}
+
+// GetUserInfo implements UserService.
+func (s *userService) GetUserInfo(ctx context.Context, req *v1.LoginRequest) (string, error) {
+	panic("unimplemented")
+}
+
+// UpdateUser implements UserService.
+func (s *userService) UpdateUser(ctx context.Context, req *v1.LoginRequest) (string, error) {
+	panic("unimplemented")
 }
 
 func (s *userService) Register(ctx context.Context, req *v1.RegisterRequest) error {

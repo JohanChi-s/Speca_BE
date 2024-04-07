@@ -1,27 +1,3 @@
-
-CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
-
-CREATE TYPE "EnumCommentStatus" AS ENUM (
-  'Done',
-  'Todo',
-  'Doing'
-);
-
-CREATE TYPE "EnumActionEventAction" AS ENUM ( 'Download',
-	'Upload',
-	'Edit',
-	'Delete',
-	'AddRole',
-	'RemoveRole',
-	'Duplicate',
-	'Comment',
-	'Share',
-	'Assign',
-	'Star',
-	'Public',
-	'Private'
-);
-
 CREATE TABLE "Tag" (
   "id" Text PRIMARY KEY DEFAULT uuid_generate_v4(),
   "name" Text UNIQUE,

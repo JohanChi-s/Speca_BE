@@ -114,7 +114,7 @@ func TestUserHandler_GetProfile(t *testing.T) {
 	mockUserService := mock_service.NewMockUserService(ctrl)
 	mockUserService.EXPECT().GetProfile(gomock.Any(), userId).Return(&v1.GetProfileResponseData{
 		UserId:   userId,
-		Nickname: "xxxxx",
+		Username: "xxxxx",
 	}, nil)
 
 	userHandler := handler.NewUserHandler(hdl, mockUserService)
@@ -135,7 +135,7 @@ func TestUserHandler_UpdateProfile(t *testing.T) {
 	defer ctrl.Finish()
 
 	params := v1.UpdateProfileRequest{
-		Nickname: "alan",
+		Username: "alan",
 		Email:    "alan@gmail.com",
 	}
 

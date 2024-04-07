@@ -137,7 +137,7 @@ const docTemplate = `{
         "core_service_api_v1.GetProfileResponseData": {
             "type": "object",
             "properties": {
-                "nickname": {
+                "Username": {
                     "type": "string",
                     "example": "alan"
                 },

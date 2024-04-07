@@ -10,7 +10,7 @@ definitions:
     type: object
   core_service_api_v1.GetProfileResponseData:
     properties:
-      nickname:
+      Username:
         example: alan
         type: string
       userId:
