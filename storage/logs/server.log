@@ -1,0 +1,4 @@
+2024-04-07 08:33:13.444397000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:41	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-07 08:33:13.444844000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-07 08:45:04.010588000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:56	Shutting down server...
+2024-04-07 08:45:04.017183000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:66	Server exiting
