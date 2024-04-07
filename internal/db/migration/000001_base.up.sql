@@ -1,4 +1,3 @@
-
 CREATE TABLE "Tag" (
   "id" Text PRIMARY KEY DEFAULT uuid_generate_v4(),
   "name" Text UNIQUE,
@@ -88,11 +87,14 @@ CREATE TABLE "Collection" (
   "parentCollectionId" Text,
   "ownerUserId" Text
 );
+
 CREATE TABLE "Member" (
   "id" Text PRIMARY KEY DEFAULT uuid_generate_v4(),
-  "userId" Text,
+  "userId" Text UNIQUE,
   "collectionId" Text,
-  "role" Text[] DEFAULT ARRAY[]::text[],
+  "documentId" Text,
+  "workspaceId" Text,
+  "role" Text,
   "createdAt" Timestamp DEFAULT (now()),
   "updatedAt" Timestamp
 );
@@ -130,8 +132,9 @@ CREATE TABLE "Position" (
   "commentsId" Text
 );
 
-CREATE TABLE "User_Team" (
-  "user_id" Text,
+
+CREATE TABLE "Member_Team" (
+  "member_id" Text,
   "team_id" Text
 );
 
@@ -143,26 +146,6 @@ CREATE TABLE "User_Workspace" (
 CREATE TABLE "User_Document" (
   "user_id" Text,
   "document_id" Text
-);
-
-CREATE TABLE "Team_Workspace" (
-  "team_id" Text,
-  "workspace_id" Text
-);
-
-CREATE TABLE "Team_Document" (
-  "team_id" Text,
-  "document_id" Text
-);
-
-CREATE TABLE "Workspace_Document" (
-  "workspace_id" Text,
-  "document_id" Text
-);
-
-CREATE TABLE "Document_Collection" (
-  "document_id" Text,
-  "collection_id" Text
 );
 
 CREATE TABLE "Collection_Member" (
@@ -200,7 +183,7 @@ COMMENT ON COLUMN "Comment"."updatedAt" IS 'Automatically updated by the databas
 
 COMMENT ON COLUMN "Position"."updatedAt" IS 'Automatically updated by the database';
 
-ALTER TABLE "Profile" ADD FOREIGN KEY ("userId") REFERENCES "User" ("id");
+ALTER TABLE "User" ADD FOREIGN KEY ("id") REFERENCES "Profile" ("userId");
 
 ALTER TABLE "Document" ADD FOREIGN KEY ("teamId") REFERENCES "Team" ("id");
 
@@ -214,7 +197,7 @@ ALTER TABLE "Collection" ADD FOREIGN KEY ("parentCollectionId") REFERENCES "Coll
 
 ALTER TABLE "Collection" ADD FOREIGN KEY ("ownerUserId") REFERENCES "User" ("id");
 
-ALTER TABLE "Member" ADD FOREIGN KEY ("userId") REFERENCES "User" ("id");
+ALTER TABLE "User" ADD FOREIGN KEY ("id") REFERENCES "Member" ("userId");
 
 ALTER TABLE "Member" ADD FOREIGN KEY ("collectionId") REFERENCES "Collection" ("id");
 
@@ -230,9 +213,9 @@ ALTER TABLE "Comment" ADD FOREIGN KEY ("parentCommentId") REFERENCES "Comment" (
 
 ALTER TABLE "Position" ADD FOREIGN KEY ("commentsId") REFERENCES "Comment" ("id");
 
-ALTER TABLE "User_Team" ADD FOREIGN KEY ("user_id") REFERENCES "User" ("id");
+ALTER TABLE "Member_Team" ADD FOREIGN KEY ("member_id") REFERENCES "Member" ("id");
 
-ALTER TABLE "User_Team" ADD FOREIGN KEY ("team_id") REFERENCES "Team" ("id");
+ALTER TABLE "Member_Team" ADD FOREIGN KEY ("team_id") REFERENCES "Team" ("id");
 
 ALTER TABLE "User_Workspace" ADD FOREIGN KEY ("user_id") REFERENCES "User" ("id");
 
@@ -241,22 +224,6 @@ ALTER TABLE "User_Workspace" ADD FOREIGN KEY ("workspace_id") REFERENCES "Worksp
 ALTER TABLE "User_Document" ADD FOREIGN KEY ("user_id") REFERENCES "User" ("id");
 
 ALTER TABLE "User_Document" ADD FOREIGN KEY ("document_id") REFERENCES "Document" ("id");
-
-ALTER TABLE "Team_Workspace" ADD FOREIGN KEY ("team_id") REFERENCES "Team" ("id");
-
-ALTER TABLE "Team_Workspace" ADD FOREIGN KEY ("workspace_id") REFERENCES "Workspace" ("id");
-
-ALTER TABLE "Team_Document" ADD FOREIGN KEY ("team_id") REFERENCES "Team" ("id");
-
-ALTER TABLE "Team_Document" ADD FOREIGN KEY ("document_id") REFERENCES "Document" ("id");
-
-ALTER TABLE "Workspace_Document" ADD FOREIGN KEY ("workspace_id") REFERENCES "Workspace" ("id");
-
-ALTER TABLE "Workspace_Document" ADD FOREIGN KEY ("document_id") REFERENCES "Document" ("id");
-
-ALTER TABLE "Document_Collection" ADD FOREIGN KEY ("document_id") REFERENCES "Document" ("id");
-
-ALTER TABLE "Document_Collection" ADD FOREIGN KEY ("collection_id") REFERENCES "Collection" ("id");
 
 ALTER TABLE "Collection_Member" ADD FOREIGN KEY ("collection_id") REFERENCES "Collection" ("id");
 
@@ -269,3 +236,7 @@ ALTER TABLE "Document_Tag" ADD FOREIGN KEY ("tag_id") REFERENCES "Tag" ("id");
 ALTER TABLE "Collection_Tag" ADD FOREIGN KEY ("folder_id") REFERENCES "Collection" ("id");
 
 ALTER TABLE "Collection_Tag" ADD FOREIGN KEY ("tag_id") REFERENCES "Tag" ("id");
+
+ALTER TABLE "Member" ADD FOREIGN KEY ("documentId") REFERENCES "Document" ("id");
+
+ALTER TABLE "Member" ADD FOREIGN KEY ("workspaceId") REFERENCES "Workspace" ("id");

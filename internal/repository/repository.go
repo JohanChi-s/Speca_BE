@@ -15,7 +15,9 @@ import (
 	"gorm.io/gorm"
 )
 
-const ctxTxKey = "TxKey"
+type ctxKeyType string
+
+const ctxTxKey ctxKeyType = "TxKey"
 
 type Repository struct {
 	db *gorm.DB

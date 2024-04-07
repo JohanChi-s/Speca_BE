@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package document;
+
+message DocumentQuery {
+  string documentId = 1;
+  repeated string fields = 2;
+}
+
+message Document {
+  string documentId = 1;
+  map<string, string> data = 2;
+}
+
+// Write CRUD message
+message CreateDocumentRequest {
+  Document document = 1;
+}
+
+message CreateDocumentResponse {
+  Document document = 1;
+}
+
+message UpdateDocumentRequest {
+  Document document = 1;
+}
+
+message UpdateDocumentResponse {
+  Document document = 1;
+}
+
+message DeleteDocumentRequest {
+  DocumentQuery query = 1;
+}
+
+message DeleteDocumentResponse {
+  Document document = 1;
+}
+
+service DocumentService {
+  rpc GetDocument(DocumentQuery) returns (Document) {}
+  rpc ListDocuments(DocumentQuery) returns (stream Document) {}
+  rpc CreateDocument(Document) returns (Document) {}
+  rpc UpdateDocument(Document) returns (Document) {}
+  rpc DeleteDocument(DocumentQuery) returns (Document) {}
+  rpc DeleteDocuments(DocumentQuery) returns (stream Document) {}
+  rpc DeleteAllDocuments(DocumentQuery) returns (stream Document) {}
+  rpc CreateDocuments(stream Document) returns (stream Document) {}
+  rpc UpdateDocuments(stream Document) returns (stream Document) {}
+}
