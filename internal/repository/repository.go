@@ -20,19 +20,19 @@ type ctxKeyType string
 const ctxTxKey ctxKeyType = "TxKey"
 
 type Repository struct {
-	db *gorm.DB
-	//rdb    *redis.Client
+	db     *gorm.DB
+	rdb    *redis.Client
 	logger *log.Logger
 }
 
 func NewRepository(
 	logger *log.Logger,
 	db *gorm.DB,
-	// rdb *redis.Client,
+	rdb *redis.Client,
 ) *Repository {
 	return &Repository{
-		db: db,
-		//rdb:    rdb,
+		db:     db,
+		rdb:    rdb,
 		logger: logger,
 	}
 }

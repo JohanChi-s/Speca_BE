@@ -10,6 +10,7 @@ import (
 	"core_service/internal/repository"
 
 	"github.com/DATA-DOG/go-sqlmock"
+	"github.com/go-redis/redismock/v9"
 	"github.com/stretchr/testify/assert"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
@@ -22,7 +23,6 @@ func setupRepository(t *testing.T) (repository.UserRepository, sqlmock.Sqlmock) 
 	if err != nil {
 		t.Fatalf("failed to create sqlmock: %v", err)
 	}
-
 	db, err := gorm.Open(mysql.New(mysql.Config{
 		Conn:                      mockDB,
 		SkipInitializeWithVersion: true,
@@ -31,9 +31,9 @@ func setupRepository(t *testing.T) (repository.UserRepository, sqlmock.Sqlmock) 
 		t.Fatalf("failed to open gorm connection: %v", err)
 	}
 
-	//rdb, _ := redismock.NewClientMock()
+	rdb, _ := redismock.NewClientMock()
 
-	repo := repository.NewRepository(logger, db)
+	repo := repository.NewRepository(logger, db, rdb)
 	userRepo := repository.NewUserRepository(repo)
 
 	return userRepo, mock
