@@ -7,6 +7,12 @@ import (
 
 type TeamRepository interface {
 	GetTeam(ctx context.Context, id string) (*model.Team, error)
+	CreateTeam(ctx context.Context, team *model.Team) error
+	UpdateTeam(ctx context.Context, team *model.Team) error
+	DeleteTeam(ctx context.Context, id string) error
+	GetAllTeams(ctx context.Context) ([]*model.Team, error)
+	GetTeamsByUserID(ctx context.Context, userID string) ([]*model.Team, error)
+	GetTeamsByWorkspaceID(ctx context.Context, workspaceID string) ([]*model.Team, error)
 }
 
 func NewTeamRepository(
