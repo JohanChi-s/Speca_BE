@@ -1,19 +1,17 @@
 package model
 
 import (
-	"time"
+	"gorm.io/gorm"
 )
 
 type Position struct {
-	ID        string `gorm:"primaryKey"`
+	gorm.Model
 	Line      int
 	Col       int
 	ToLine    string
 	ToCol     string
 	Content   string
-	CreatedAt time.Time `gorm:"default:now()"`
-	UpdatedAt time.Time `gorm:"autoUpdateTime"`
-	CommentID string
+	CommentID uint
 	Comment   Comment `gorm:"foreignKey:CommentID"`
 }
 

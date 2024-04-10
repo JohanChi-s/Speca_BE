@@ -3,6 +3,7 @@ package v1
 import (
 	"errors"
 	"net/http"
+	"strconv"
 
 	"github.com/gin-gonic/gin"
 )
@@ -49,4 +50,16 @@ func newError(code int, msg string) error {
 }
 func (e Error) Error() string {
 	return e.Message
+}
+
+func StringToUint(str string) (uint, error) {
+	// ParseUint will return a uint64
+	parsed, err := strconv.ParseUint(str, 10, 64)
+	if err != nil {
+		return 0, err
+	}
+
+	// Convert the parsed uint64 to uint
+	result := uint(parsed)
+	return result, nil
 }

@@ -735,3 +735,938 @@ core_service/pkg/app.(*App).Run.func1
 	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
 2024-04-10 16:38:54.117899000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:44	AutoMigrate stop
 2024-04-10 16:41:25.132863000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:39	AutoMigrate success
+2024-04-10 20:21:59.357211000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:21:59.357669000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:22:56.315924000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "db2e5adbd981cbd46084579b0af63ff0", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 20:22:56.328870000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "db2e5adbd981cbd46084579b0af63ff0", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "record not found"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 20:22:56.329473000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "db2e5adbd981cbd46084579b0af63ff0", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":0,\"message\":\"record not found\",\"data\":{}}", "time": "13.949791ms"}
+2024-04-10 20:27:33.333062000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:27:33.333407000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:31:42.006349000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:31:42.006596000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:31:52.934820000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "f9b00e0499b889d634fb9cb282b4db38", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 20:31:52.944676000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "f9b00e0499b889d634fb9cb282b4db38", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "record not found"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 20:31:52.945134000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "f9b00e0499b889d634fb9cb282b4db38", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":0,\"message\":\"record not found\",\"data\":{}}", "time": "10.505833ms"}
+2024-04-10 20:32:40.217033000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:32:40.217380000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:32:43.257238000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "b8ca3d6f1a0f54da79d7331c41177116", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 20:32:43.270537000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "b8ca3d6f1a0f54da79d7331c41177116", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "Bad Request"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 20:32:43.271299000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "b8ca3d6f1a0f54da79d7331c41177116", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":400,\"message\":\"Bad Request\",\"data\":{}}", "time": "14.156375ms"}
+2024-04-10 20:33:45.973136000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:33:45.973383000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:33:49.684435000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:33:49.684653000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:33:57.744244000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "5b20ab731b31f77ecc6517ed306f4cc3", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 20:33:57.757094000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "5b20ab731b31f77ecc6517ed306f4cc3", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "Bad Request"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 20:33:57.758005000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "5b20ab731b31f77ecc6517ed306f4cc3", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":400,\"message\":\"Bad Request\",\"data\":{}}", "time": "14.042625ms"}
+2024-04-10 20:36:54.640445000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:36:54.640914000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:37:09.649503000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "b1dc050b4ebaaae58c83e3a7df18e0b5", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 20:37:09.671957000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "b1dc050b4ebaaae58c83e3a7df18e0b5", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "Bad Request"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 20:37:09.679533000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "b1dc050b4ebaaae58c83e3a7df18e0b5", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":400,\"message\":\"Bad Request\",\"data\":{}}", "time": "30.249791ms"}
+2024-04-10 20:37:50.730752000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:37:50.731060000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:38:48.176447000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "d1c365098d27b8b50c01255ebe5fbdd9", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 20:38:48.187844000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "d1c365098d27b8b50c01255ebe5fbdd9", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "Bad Request"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 20:38:48.188471000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "d1c365098d27b8b50c01255ebe5fbdd9", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":400,\"message\":\"Bad Request\",\"data\":{}}", "time": "12.265292ms"}
+2024-04-10 20:39:04.181722000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "8511761ad0a0a360b0790f7950004f1c", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 20:39:04.184554000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "8511761ad0a0a360b0790f7950004f1c", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "Bad Request"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 20:39:04.184942000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "8511761ad0a0a360b0790f7950004f1c", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":400,\"message\":\"Bad Request\",\"data\":{}}", "time": "3.432459ms"}
+2024-04-10 20:39:40.767287000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:39:40.767539000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:40:29.420803000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:40:29.421127000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:41:04.492092000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:41:04.492344000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:41:09.227417000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "286337d1f53b27b361c36325ec627950", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 20:41:09.241023000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "286337d1f53b27b361c36325ec627950", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "Bad Request"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 20:41:09.241906000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "286337d1f53b27b361c36325ec627950", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":400,\"message\":\"Bad Request\",\"data\":{}}", "time": "14.655167ms"}
+2024-04-10 20:41:37.590087000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:41:37.590447000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:41:41.261078000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:41:41.261302000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:41:46.755191000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "b94df81c3c5a02ffd215ce19f7efee6c", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 20:41:46.768892000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "b94df81c3c5a02ffd215ce19f7efee6c", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "Bad Request"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 20:41:46.769247000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "b94df81c3c5a02ffd215ce19f7efee6c", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":400,\"message\":\"Bad Request\",\"data\":{}}", "time": "14.20125ms"}
+2024-04-10 20:44:56.368712000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:44:56.369025000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:45:07.355648000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "0257c7ca0e8a1807fb9a29932e2390b1", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 20:45:07.495707000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "0257c7ca0e8a1807fb9a29932e2390b1", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "ERROR: relation \"member\" does not exist (SQLSTATE 42P01)"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 20:45:07.495947000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "0257c7ca0e8a1807fb9a29932e2390b1", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":0,\"message\":\"ERROR: relation \\\"member\\\" does not exist (SQLSTATE 42P01)\",\"data\":{}}", "time": "140.703459ms"}
+2024-04-10 20:46:57.571850000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:46:57.572124000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:47:19.290222000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:39	AutoMigrate success
+2024-04-10 20:48:23.388751000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 20:48:50.852164000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 20:48:50.852635000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 20:49:06.469662000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "3b3c4376791a31a6872cdf550f4c4824", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["56"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"12345@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 20:49:06.611179000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "3b3c4376791a31a6872cdf550f4c4824", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["56"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"12345@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "ERROR: duplicate key value violates unique constraint \"profile_pkey\" (SQLSTATE 23505)"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 20:49:06.611610000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "3b3c4376791a31a6872cdf550f4c4824", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["56"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"12345@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":0,\"message\":\"ERROR: duplicate key value violates unique constraint \\\"profile_pkey\\\" (SQLSTATE 23505)\",\"data\":{}}", "time": "142.1285ms"}
+2024-04-10 21:39:20.246961000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 21:39:20.247355000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 21:39:21.840368000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:57	Shutting down server...
+2024-04-10 21:39:21.840808000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:67	Server exiting
+2024-04-10 21:39:29.563980000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collection_workspace\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:40:26.052277000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collection_workspace\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:40:44.301096000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collection_workspace\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:40:52.159654000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collection_workspace\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:41:12.849942000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collection_workspace\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:41:19.851844000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collection_workspace\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:41:27.887905000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collection_workspace\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:42:07.727301000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collection_workspace\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:45:47.257492000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collection_workspace\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:49:51.392313000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collection_workspace\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:51:25.693570000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_workspace_collection\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:54:32.459717000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_workspace_collection\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:55:14.700058000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_workspace_collection\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:56:28.792825000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collections_owner_user\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:57:01.959043000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:38	user migrate error	{"error": "ERROR: foreign key constraint \"fk_workspace_collection\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:38
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:57:08.725490000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collections_owner_user\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:57:33.404649000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "invalid field found for struct core_service/internal/model.Collection's field OwnerUser: define a valid foreign key for relations or implement the Valuer/Scanner interface"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:58:42.671116000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collections_owner\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:58:54.564101000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_workspace_teams\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 21:59:40.689590000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_workspace_teams\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 22:00:00.569909000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collections_owner\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 22:01:10.504657000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "invalid field found for struct core_service/internal/model.Collection's field Owner: define a valid foreign key for relations or implement the Valuer/Scanner interface"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 22:01:25.202275000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "invalid field found for struct core_service/internal/model.Collection's field Owner: define a valid foreign key for relations or implement the Valuer/Scanner interface"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 22:02:18.121091000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_workspace_collection\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 22:02:24.260606000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "invalid field found for struct core_service/internal/model.Collection's field Owner: define a valid foreign key for relations or implement the Valuer/Scanner interface"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 22:02:32.181799000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collections_owner\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 22:02:45.977654000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_workspace_teams\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 22:03:14.185202000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_workspace_teams\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 22:03:54.712942000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_workspace_teams\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 22:04:25.670196000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_collections_user\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 22:04:37.237215000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37	user migrate error	{"error": "ERROR: foreign key constraint \"fk_workspace_teams\" cannot be implemented (SQLSTATE 42804)"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:37
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 22:06:03.039057000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:45	AutoMigrate stop
+2024-04-10 22:08:50.147261000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:09:16.731947000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:09:16.732468000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:09:26.612068000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "3869d735bee36ec0ebef3711272c6205", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 22:09:26.759810000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "3869d735bee36ec0ebef3711272c6205", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "ERROR: insert or update on table \"member\" violates foreign key constraint \"fk_member_document\" (SQLSTATE 23503)"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 22:09:26.760088000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "3869d735bee36ec0ebef3711272c6205", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":0,\"message\":\"ERROR: insert or update on table \\\"member\\\" violates foreign key constraint \\\"fk_member_document\\\" (SQLSTATE 23503)\",\"data\":{}}", "time": "148.242708ms"}
+2024-04-10 22:15:35.206620000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:15:35.207048000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:20:47.880941000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:20:47.881467000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:26:00.198347000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:57	Shutting down server...
+2024-04-10 22:26:00.208234000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:67	Server exiting
+2024-04-10 22:26:06.334471000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:26:21.809723000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:26:21.810192000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:26:35.280958000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "7afcb7d0883beffd9e714d1df693cd81", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 22:26:35.309624000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "7afcb7d0883beffd9e714d1df693cd81", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "Bad Request"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 22:26:35.310423000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "7afcb7d0883beffd9e714d1df693cd81", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":400,\"message\":\"Bad Request\",\"data\":{}}", "time": "29.93125ms"}
+2024-04-10 22:27:07.404150000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "3da91641b919f32260b4af5f5f416545", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1235@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 22:27:07.574910000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "3da91641b919f32260b4af5f5f416545", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1235@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "ERROR: insert or update on table \"member\" violates foreign key constraint \"fk_member_document\" (SQLSTATE 23503)"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 22:27:07.575348000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "3da91641b919f32260b4af5f5f416545", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1235@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":0,\"message\":\"ERROR: insert or update on table \\\"member\\\" violates foreign key constraint \\\"fk_member_document\\\" (SQLSTATE 23503)\",\"data\":{}}", "time": "171.799667ms"}
+2024-04-10 22:29:37.506416000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:57	Shutting down server...
+2024-04-10 22:29:37.511813000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:67	Server exiting
+2024-04-10 22:29:43.118731000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:30:11.650143000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:31:35.164770000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:34:36.848599000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:34:46.370789000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:35:05.499206000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:35:16.575516000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:35:16.575786000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:35:49.250787000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "b2b269a785b967a54fe42391387559e7", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["54"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"123@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 22:35:49.402020000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "b2b269a785b967a54fe42391387559e7", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["54"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"123@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "ERROR: insert or update on table \"member\" violates foreign key constraint \"fk_member_document\" (SQLSTATE 23503)"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 22:35:49.402276000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "b2b269a785b967a54fe42391387559e7", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["54"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"123@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":0,\"message\":\"ERROR: insert or update on table \\\"member\\\" violates foreign key constraint \\\"fk_member_document\\\" (SQLSTATE 23503)\",\"data\":{}}", "time": "151.704875ms"}
+2024-04-10 22:37:28.541461000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:37:28.541859000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:37:37.774342000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:37:37.774663000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:37:41.894215000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:37:41.894904000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:37:49.101445000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:37:49.101828000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:37:50.211942000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:57	Shutting down server...
+2024-04-10 22:37:50.212374000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:67	Server exiting
+2024-04-10 22:37:53.868274000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:37:59.614453000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:37:59.614870000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:38:12.547992000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "b9cfbe4fda50ec72d07a50db06341b30", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["56"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"12343@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 22:38:12.708440000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "b9cfbe4fda50ec72d07a50db06341b30", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["56"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"12343@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "ERROR: insert or update on table \"member\" violates foreign key constraint \"fk_member_document\" (SQLSTATE 23503)"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 22:38:12.708678000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "b9cfbe4fda50ec72d07a50db06341b30", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["56"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"12343@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":0,\"message\":\"ERROR: insert or update on table \\\"member\\\" violates foreign key constraint \\\"fk_member_document\\\" (SQLSTATE 23503)\",\"data\":{}}", "time": "160.909792ms"}
+2024-04-10 22:42:07.300882000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:42:07.301288000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:43:04.349977000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:43:04.350203000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:43:42.913151000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:43:42.913542000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:43:50.385537000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:57	Shutting down server...
+2024-04-10 22:43:50.386398000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:67	Server exiting
+2024-04-10 22:43:54.571875000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:44:00.484796000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:44:00.485139000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:44:12.149837000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "bce0d216d13979b76462163c71312f65", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["58"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1231234@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 22:44:12.307717000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "bce0d216d13979b76462163c71312f65", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["58"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1231234@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "ERROR: insert or update on table \"member\" violates foreign key constraint \"fk_member_document\" (SQLSTATE 23503)"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 22:44:12.308085000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "bce0d216d13979b76462163c71312f65", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["58"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1231234@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":0,\"message\":\"ERROR: insert or update on table \\\"member\\\" violates foreign key constraint \\\"fk_member_document\\\" (SQLSTATE 23503)\",\"data\":{}}", "time": "158.486292ms"}
+2024-04-10 22:47:20.580324000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:47:20.580613000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:47:28.161278000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:47:28.161678000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:47:31.581748000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:47:31.582124000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:47:35.984851000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:47:35.985078000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:47:41.320565000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:57	Shutting down server...
+2024-04-10 22:47:41.321537000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:67	Server exiting
+2024-04-10 22:47:46.171912000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:48:01.867299000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:48:37.522711000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:49:15.070262000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:49:20.283837000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:52:38.323302000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:53:29.032402000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:53:37.603337000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:53:37.603761000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:53:48.955928000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "5332a28b1959b968c83da1bdd29e2537", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 22:53:48.969764000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "5332a28b1959b968c83da1bdd29e2537", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "Bad Request"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 22:53:48.971552000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "5332a28b1959b968c83da1bdd29e2537", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["55"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":400,\"message\":\"Bad Request\",\"data\":{}}", "time": "15.866542ms"}
+2024-04-10 22:54:07.729583000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "e136ee09018ce9a09193a867c4c01236", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["58"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234232@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 22:54:07.886474000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42	userService.Register error	{"trace": "e136ee09018ce9a09193a867c4c01236", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["58"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234232@gmail.com\",\n  \"password\": \"123456\"\n}", "error": "ERROR: insert or update on table \"member\" violates foreign key constraint \"fk_member_document\" (SQLSTATE 23503)"}
+core_service/internal/handler.(*UserHandler).Register
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/handler/user.go:42
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.RequestLogMiddleware.func7
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:33
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.ResponseLogMiddleware.func6
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:41
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+core_service/internal/server.NewHTTPServer.CORSMiddleware.func5
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/cors.go:21
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.CustomRecoveryWithWriter.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/recovery.go:102
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.LoggerWithConfig.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/logger.go:240
+github.com/gin-gonic/gin.(*Context).Next
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/context.go:174
+github.com/gin-gonic/gin.(*Engine).handleHTTPRequest
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:620
+github.com/gin-gonic/gin.(*Engine).ServeHTTP
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/vendor/github.com/gin-gonic/gin/gin.go:576
+net/http.serverHandler.ServeHTTP
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2938
+net/http.(*conn).serve
+	/opt/homebrew/Cellar/go/1.21.0/libexec/src/net/http/server.go:2009
+2024-04-10 22:54:07.886688000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "e136ee09018ce9a09193a867c4c01236", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["58"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"1234232@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":0,\"message\":\"ERROR: insert or update on table \\\"member\\\" violates foreign key constraint \\\"fk_member_document\\\" (SQLSTATE 23503)\",\"data\":{}}", "time": "157.384958ms"}
+2024-04-10 22:57:34.591883000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:57:34.592449000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:57:35.681019000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:57	Shutting down server...
+2024-04-10 22:57:35.681399000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:67	Server exiting
+2024-04-10 22:57:40.158614000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:40	AutoMigrate success
+2024-04-10 22:57:47.073925000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 22:57:47.074193000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 22:58:03.206041000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "37037565b6f61d7b0b05fcecfa0bb22e", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["59"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"12312321@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 22:58:03.356070000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "37037565b6f61d7b0b05fcecfa0bb22e", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["59"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/register", "request_params": "{\n  \"email\": \"12312321@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":201,\"message\":\"ok\",\"data\":{}}", "time": "150.603791ms"}
+2024-04-10 22:58:57.161609000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:32	Request	{"trace": "1a81609963ad17e5d3cfb69025826a8e", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["59"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/login", "request_params": "{\n  \"email\": \"12312321@gmail.com\",\n  \"password\": \"123456\"\n}"}
+2024-04-10 22:58:57.270873000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/middleware/log.go:44	Response	{"trace": "1a81609963ad17e5d3cfb69025826a8e", "request_method": "POST", "request_headers": {"Accept":["application/json"],"Accept-Encoding":["gzip, deflate, br, zstd"],"Accept-Language":["en-US,en;q=0.9,vi;q=0.8"],"Connection":["keep-alive"],"Content-Length":["59"],"Content-Type":["application/json"],"Origin":["http://127.0.0.1:8000"],"Referer":["http://127.0.0.1:8000/"],"Sec-Ch-Ua":["\"Google Chrome\";v=\"123\", \"Not:A-Brand\";v=\"8\", \"Chromium\";v=\"123\""],"Sec-Ch-Ua-Mobile":["?0"],"Sec-Ch-Ua-Platform":["\"macOS\""],"Sec-Fetch-Dest":["empty"],"Sec-Fetch-Mode":["cors"],"Sec-Fetch-Site":["cross-site"],"User-Agent":["Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/123.0.0.0 Safari/537.36"]}, "request_url": "/v1/login", "request_params": "{\n  \"email\": \"12312321@gmail.com\",\n  \"password\": \"123456\"\n}", "response_body": "{\"code\":201,\"message\":\"ok\",\"data\":{\"accessToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOjcsImV4cCI6MTcyMDU0MDczNywibmJmIjoxNzEyNzY0NzM3LCJpYXQiOjE3MTI3NjQ3Mzd9.WXZFM-ZmdRw5-4lcB1lpehVXa0Y_grOlUPHdHx860wc\"}}", "time": "109.661292ms"}

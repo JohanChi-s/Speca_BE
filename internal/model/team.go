@@ -1,11 +1,11 @@
 package model
 
 import (
-	"time"
+	"gorm.io/gorm"
 )
 
 type Team struct {
-	ID              string `gorm:"primaryKey"`
+	gorm.Model
 	Name            string
 	AvatarURL       string
 	SubDomain       string
@@ -14,10 +14,8 @@ type Team struct {
 	CanShare        bool
 	InviteRequired  bool
 	DefaultUserRole string
-	CreatedAt       time.Time `gorm:"default:now()"`
-	UpdatedAt       time.Time `gorm:"autoUpdateTime"`
 	Documents       []Document
-	WorkspaceID     string
+	WorkspaceID     uint
 	Workspace       Workspace `gorm:"foreignKey:WorkspaceID"`
 }
 

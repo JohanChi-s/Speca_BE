@@ -86,7 +86,7 @@ func (h *UserHandler) Login(ctx *gin.Context) {
 // @Router /user [get]
 func (h *UserHandler) GetProfile(ctx *gin.Context) {
 	userId := GetUserIdFromCtx(ctx)
-	if userId == "" {
+	if userId == 0 {
 		v1.HandleError(ctx, http.StatusUnauthorized, v1.ErrUnauthorized, nil)
 		return
 	}
@@ -140,7 +140,7 @@ func (h *UserHandler) UpdateProfile(ctx *gin.Context) {
 // @Router /user/me [get]
 func (h *UserHandler) GetMe(ctx *gin.Context) {
 	userId := GetUserIdFromCtx(ctx)
-	if userId == "" {
+	if userId == 0 {
 		v1.HandleError(ctx, http.StatusUnauthorized, v1.ErrUnauthorized, nil)
 		return
 	}
@@ -171,8 +171,13 @@ func (h *UserHandler) GetUserByID(ctx *gin.Context) {
 		v1.HandleError(ctx, http.StatusBadRequest, v1.ErrBadRequest, nil)
 		return
 	}
+	userIdUint, err := v1.StringToUint(userId)
+	if err != nil {
+		v1.HandleError(ctx, http.StatusBadRequest, v1.ErrBadRequest, nil)
+		return
+	}
 
-	user, err := h.userService.GetUser(ctx, userId)
+	user, err := h.userService.GetUser(ctx, uint(userIdUint))
 	if err != nil {
 		v1.HandleError(ctx, http.StatusBadRequest, v1.ErrBadRequest, nil)
 		return
@@ -195,12 +200,18 @@ func (h *UserHandler) GetUserByID(ctx *gin.Context) {
 func (h *UserHandler) DeleteUserByID(ctx *gin.Context) {
 	// get userId from params
 	userId := ctx.Param("id")
+
 	if userId == "" {
 		v1.HandleError(ctx, http.StatusUnauthorized, v1.ErrUnauthorized, nil)
 		return
 	}
 
-	if err := h.userService.DeleteUserByID(ctx, userId); err != nil {
+	userIdUint, err := v1.StringToUint(userId)
+	if err != nil {
+		v1.HandleError(ctx, http.StatusBadRequest, v1.ErrBadRequest, nil)
+		return
+	}
+	if err := h.userService.DeleteUserByID(ctx, userIdUint); err != nil {
 		v1.HandleError(ctx, http.StatusBadRequest, v1.ErrBadRequest, nil)
 		return
 	}

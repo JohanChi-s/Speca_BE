@@ -1,19 +1,17 @@
 package model
 
 import (
-	"time"
+	"gorm.io/gorm"
 )
 
 type Comment struct {
-	ID              string `gorm:"primaryKey"`
+	gorm.Model
 	Content         string
-	CreatedAt       time.Time `gorm:"default:now()"`
-	UpdatedAt       time.Time `gorm:"autoUpdateTime"`
-	UserID          string
+	UserID          uint
 	User            User `gorm:"foreignKey:UserID"`
-	DocumentID      string
+	DocumentID      uint
 	Document        Document `gorm:"foreignKey:DocumentID"`
-	ParentCommentID string
+	ParentCommentID uint
 }
 
 func (m *Comment) TableName() string {

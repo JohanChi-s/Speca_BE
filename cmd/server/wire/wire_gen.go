@@ -33,7 +33,9 @@ func NewWire(viperViper *viper.Viper, logger *log.Logger) (*app.App, func(), err
 	serviceService := service.NewService(transaction, logger, sidSid, jwtJWT)
 	userRepository := repository.NewUserRepository(repositoryRepository)
 	profileRepository := repository.NewProfileRepository(repositoryRepository)
-	userService := service.NewUserService(serviceService, userRepository, profileRepository)
+	workspaceRepository := repository.NewWorkspaceRepository(repositoryRepository)
+	memberRepository := repository.NewMemberRepository(repositoryRepository)
+	userService := service.NewUserService(serviceService, userRepository, profileRepository, workspaceRepository, memberRepository)
 	userHandler := handler.NewUserHandler(handlerHandler, userService)
 	httpServer := server.NewHTTPServer(logger, viperViper, jwtJWT, userHandler)
 	job := server.NewJob(logger)
@@ -44,9 +46,9 @@ func NewWire(viperViper *viper.Viper, logger *log.Logger) (*app.App, func(), err
 
 // wire.go:
 
-var repositorySet = wire.NewSet(repository.NewDB, repository.NewRedis, repository.NewRepository, repository.NewTransaction, repository.NewUserRepository, repository.NewProfileRepository)
+var repositorySet = wire.NewSet(repository.NewDB, repository.NewRedis, repository.NewRepository, repository.NewTransaction, repository.NewUserRepository, repository.NewProfileRepository, repository.NewWorkspaceRepository, repository.NewDocumentRepository, repository.NewTagRepository, repository.NewCommentRepository, repository.NewTeamRepository, repository.NewPositionRepository, repository.NewMemberRepository)
 
-var serviceSet = wire.NewSet(service.NewService, service.NewUserService, service.NewProfileService)
+var serviceSet = wire.NewSet(service.NewService, service.NewUserService, service.NewProfileService, service.NewWorkspaceService, service.NewDocumentService, service.NewTagService, service.NewCommentService, service.NewTeamService, service.NewPositionService, service.NewMemberService)
 
 var handlerSet = wire.NewSet(handler.NewHandler, handler.NewUserHandler, handler.NewProfileHandler)
 

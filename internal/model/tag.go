@@ -1,7 +1,9 @@
 package model
 
+import "gorm.io/gorm"
+
 type Tag struct {
-	ID          string `gorm:"primaryKey"`
+	gorm.Model
 	Name        string `gorm:"unique"`
 	Description string
 	Documents   []Document   `gorm:"many2many:document_tags;"`   // Relationship with Document model

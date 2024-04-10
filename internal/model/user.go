@@ -2,10 +2,12 @@ package model
 
 import (
 	"time"
+
+	"gorm.io/gorm"
 )
 
 type User struct {
-	ID           string `gorm:"primaryKey"`
+	gorm.Model
 	Email        string `gorm:"unique"`
 	Username     string `gorm:"unique"`
 	Password     string
@@ -17,8 +19,6 @@ type User struct {
 	Language     string
 	LastActiveAt time.Time `gorm:"autoUpdateTime"`
 	Roles        []string  `gorm:"type:text[]"`
-	CreatedAt    time.Time `gorm:"default:now()"`
-	UpdatedAt    time.Time `gorm:"autoUpdateTime"`
 }
 
 func (u *User) TableName() string {

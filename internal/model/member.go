@@ -1,24 +1,18 @@
 package model
 
 import (
-	"time"
+	"gorm.io/gorm"
 )
 
 type Member struct {
-	ID           string `gorm:"primaryKey"`
-	UserID       string `gorm:"unique"`
-	User         User   `gorm:"foreignKey:UserID"`
-	CollectionID string
-	Collection   Collection `gorm:"foreignKey:CollectionID"`
-	DocumentID   string
-	Document     Document `gorm:"foreignKey:DocumentID"`
-	WorkspaceID  string
-	Workspace    Workspace `gorm:"foreignKey:WorkspaceID"`
-	TeamID       string
-	Team         Team `gorm:"foreignKey:TeamID"`
+	gorm.Model
+	UserID       uint  `gorm:"unique"`
+	User         User  `gorm:"foreignKey:UserID"`
+	CollectionID *uint `gorm:"nullable"`
+	DocumentID   *uint `gorm:"nullable"`
+	WorkspaceID  *uint `gorm:"nullable"`
+	TeamID       *uint `gorm:"nullable"`
 	Role         string
-	CreatedAt    time.Time `gorm:"default:now()"`
-	UpdatedAt    time.Time `gorm:"autoUpdateTime"`
 }
 
 func (m *Member) TableName() string {

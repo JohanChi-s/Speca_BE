@@ -5,40 +5,50 @@ import (
 	v1 "core_service/api/v1"
 	"core_service/internal/model"
 	"core_service/internal/repository"
-	"errors"
+	"log"
 	"time"
 
-	"go.uber.org/zap"
 	"golang.org/x/crypto/bcrypt"
+	"gorm.io/gorm"
 )
 
 type UserService interface {
+	// Auth
 	Register(ctx context.Context, req *v1.RegisterRequest) error
 	Login(ctx context.Context, req *v1.LoginRequest) (string, error)
-	GetProfile(ctx context.Context, userId string) (*v1.GetProfileResponseData, error)
-	UpdateProfile(ctx context.Context, userId string, req *v1.UpdateProfileRequest) error
-	GetUser(ctx context.Context, user_id string) (*model.User, error)
-	DeleteUserByID(ctx context.Context, user_id string) error
+
+	//User
+	GetProfile(ctx context.Context, userId uint) (*v1.GetProfileResponseData, error)
+	UpdateProfile(ctx context.Context, userId uint, req *v1.UpdateProfileRequest) error
+	GetUser(ctx context.Context, user_id uint) (*model.User, error)
+	DeleteUserByID(ctx context.Context, user_id uint) error
 }
 
-func NewUserService(service *Service, userRepo repository.UserRepository, profileRepo repository.ProfileRepository) UserService {
+func NewUserService(
+	service *Service,
+	userRepo repository.UserRepository,
+	profileRepo repository.ProfileRepository,
+	workspaceRepo repository.WorkspaceRepository,
+	memberRepo repository.MemberRepository) UserService {
 	return &userService{
-		userRepo:    userRepo,
-		profileRepo: profileRepo,
-		Service:     service,
+		userRepo:      userRepo,
+		profileRepo:   profileRepo,
+		workspaceRepo: workspaceRepo,
+		memberRepo:    memberRepo,
+		Service:       service,
 	}
 }
 
 type userService struct {
-	userRepo repository.UserRepository
-	// workspaceRepo repository.WorkspaceRepository
-	profileRepo repository.ProfileRepository
-	// docRepo       repository.DocumentRepository
+	userRepo      repository.UserRepository
+	profileRepo   repository.ProfileRepository
+	workspaceRepo repository.WorkspaceRepository
+	memberRepo    repository.MemberRepository
 	*Service
 }
 
 // Get User
-func (s *userService) GetUser(ctx context.Context, user_id string) (*model.User, error) {
+func (s *userService) GetUser(ctx context.Context, user_id uint) (*model.User, error) {
 	user, err := s.userRepo.GetByID(ctx, user_id)
 	if err != nil {
 		return nil, err
@@ -47,49 +57,63 @@ func (s *userService) GetUser(ctx context.Context, user_id string) (*model.User,
 }
 
 func (s *userService) Register(ctx context.Context, req *v1.RegisterRequest) error {
-	// check username
-	s.logger.Info("Register", zap.String("email", req.Email))
-	user, err := s.userRepo.GetByEmail(ctx, req.Email)
-	if err != nil {
-		return v1.ErrInternalServerError
+	// check user exist
+	log.Println("Registering email", req.Email)
+	checkUser, err := s.userRepo.GetUserByEmail(ctx, req.Email)
+	if err != nil && err != gorm.ErrRecordNotFound {
+		return err
 	}
-	if err == nil && user != nil {
-		return v1.ErrEmailAlreadyUse
+	if checkUser != nil {
+		log.Println("User already exists", checkUser.Email)
+		return v1.ErrBadRequest
 	}
 
 	hashedPassword, err := bcrypt.GenerateFromPassword([]byte(req.Password), bcrypt.DefaultCost)
 	if err != nil {
 		return err
 	}
-	// Generate user ID
-	userId, err := s.sid.GenUUID()
-	if err != nil {
-		return err
-	}
-	user = &model.User{
-		ID:       userId,
+	user := &model.User{
 		Email:    req.Email,
+		Username: req.Email,
 		Password: string(hashedPassword),
 	}
 	// Transaction demo
 	err = s.tm.Transaction(ctx, func(ctx context.Context) error {
-		// create Profile
+		if err := s.userRepo.CreateUser(ctx, user); err != nil {
+			return err
+		}
+
 		profile := &model.Profile{
-			UserID: userId,
-		}
-		if s.profileRepo == nil {
-			return errors.New("profileRepo is nil")
+			UserID:    user.ID,
+			FullName:  user.Email, // Set default full name or prompt user to enter it
+			AvatarURL: "",         // Set default avatar URL or leave it empty
 		}
 
-		if err = s.profileRepo.CreateProfile(ctx, profile); err != nil {
+		if err := s.profileRepo.CreateProfile(ctx, profile); err != nil {
 			return err
 		}
 
-		// Create a user
-		if err = s.userRepo.Create(ctx, user); err != nil {
+		// Create default workspace for the new user
+		defaultWorkspace := &model.Workspace{
+			Name:     "My Workspace",
+			Domain:   "my_workspace",
+			IsPublic: false, // Adjust visibility as needed
+		}
+		if err := s.workspaceRepo.CreateWorkspace(ctx, defaultWorkspace); err != nil {
 			return err
 		}
-		// todo: other repo
+
+		// Create member with role owner and assign it to the workspace
+		ownerMember := &model.Member{
+			UserID:      user.ID,
+			WorkspaceID: &defaultWorkspace.ID,
+			DocumentID:  nil,
+			Role:        v1.RoleToString(v1.OwnerRole),
+		}
+		if err := s.memberRepo.CreateMember(ctx, ownerMember); err != nil {
+			return err
+		}
+
 		return nil
 	})
 	return err
@@ -113,7 +137,7 @@ func (s *userService) Login(ctx context.Context, req *v1.LoginRequest) (string, 
 	return token, nil
 }
 
-func (s *userService) GetProfile(ctx context.Context, userId string) (*v1.GetProfileResponseData, error) {
+func (s *userService) GetProfile(ctx context.Context, userId uint) (*v1.GetProfileResponseData, error) {
 	user, err := s.userRepo.GetByID(ctx, userId)
 	if err != nil {
 		return nil, err
@@ -125,7 +149,7 @@ func (s *userService) GetProfile(ctx context.Context, userId string) (*v1.GetPro
 	}, nil
 }
 
-func (s *userService) UpdateProfile(ctx context.Context, userId string, req *v1.UpdateProfileRequest) error {
+func (s *userService) UpdateProfile(ctx context.Context, userId uint, req *v1.UpdateProfileRequest) error {
 	user, err := s.userRepo.GetByID(ctx, userId)
 	if err != nil {
 		return err
@@ -141,6 +165,6 @@ func (s *userService) UpdateProfile(ctx context.Context, userId string, req *v1.
 	return nil
 }
 
-func (s *userService) DeleteUserByID(ctx context.Context, user_id string) error {
+func (s *userService) DeleteUserByID(ctx context.Context, user_id uint) error {
 	return s.userRepo.DeleteUser(ctx, user_id)
 }

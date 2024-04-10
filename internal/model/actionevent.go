@@ -1,20 +1,19 @@
 package model
 
 import (
-	"time"
+	"gorm.io/gorm"
 )
 
 type ActionEvent struct {
-	ID           string `gorm:"primaryKey"`
+	gorm.Model
 	Action       string
-	CreatedAt    time.Time `gorm:"default:now()"`
 	Actor        string
-	AssigneeID   string // Foreign key column
-	Assignee     User   `gorm:"foreignKey:AssigneeID"` // Foreign key relationship
-	AssignerID   string // Foreign key column
+	AssigneeID   uint // Foreign key column
+	Assignee     User `gorm:"foreignKey:AssigneeID"` // Foreign key relationship
+	AssignerID   uint // Foreign key column
 	Assigner     User
-	DocumentID   string
+	DocumentID   uint
 	Document     Document `gorm:"foreignKey:DocumentID"`
-	CollectionID string
+	CollectionID uint
 	Collection   Collection `gorm:"foreignKey:CollectionID"`
 }
