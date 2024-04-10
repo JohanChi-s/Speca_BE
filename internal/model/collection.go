@@ -11,18 +11,15 @@ type Collection struct {
 	Icon               string
 	IsSaving           bool
 	CanShare           bool
-	ChildCollectionIDs string
-	DownloadPermission []byte
-	CreatedAt          time.Time
+	DownloadPermission []string  `gorm:"type:text[]"`
+	CreatedAt          time.Time `gorm:"default:now()"`
 	UpdatedAt          time.Time `gorm:"autoUpdateTime"`
 	WorkspaceID        string
+	Workspace          Workspace `gorm:"foreignKey:WorkspaceID"`
 	ParentCollectionID string
-	OwnerUserID        string
-}
-
-type CollectionMember struct {
-	CollectionID string `gorm:"primaryKey"`
-	MemberID     string `gorm:"primaryKey"`
+	OwnerID            string
+	OwnerUser          User  `gorm:"foreignKey:OwnerID"`
+	Tags               []Tag `gorm:"many2many:collection_tags;"` // Relationship with Tag model
 }
 
 func (m *Collection) TableName() string {

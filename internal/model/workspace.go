@@ -8,15 +8,12 @@ type Workspace struct {
 	ID        string `gorm:"primaryKey"`
 	Name      string
 	Domain    string
-	IsPublic  bool
-	CreatedAt time.Time
+	IsPublic  bool      `gorm:"default:false"`
+	CreatedAt time.Time `gorm:"default:now()"`
 	UpdatedAt time.Time `gorm:"autoUpdateTime"`
-	URL       string
-}
-
-type WorkspaceDocument struct {
-	WorkspaceID string `gorm:"primaryKey"`
-	DocumentID  string `gorm:"primaryKey"`
+	Teams     []Team    `gorm:"foreignKey:WorkspaceID"`
+	Members   []Member  `gorm:"foreignKey:WorkspaceID"`
+	Document  []Document
 }
 
 func (m *Workspace) TableName() string {

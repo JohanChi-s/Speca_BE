@@ -11,17 +11,17 @@ type Document struct {
 	Emoji        string
 	IsPublic     bool
 	IsFullWidth  bool
-	CreatedAt    time.Time
+	CreatedAt    time.Time `gorm:"default:now()"`
 	UpdatedAt    time.Time `gorm:"autoUpdateTime"`
 	AuthorID     string
+	Author       User `gorm:"foreignKey:AuthorID"`
 	TeamID       string
+	Team         Team `gorm:"foreignKey:TeamID"`
 	WorkspaceID  string
+	Workspace    Workspace `gorm:"foreignKey:WorkspaceID"`
 	CollectionID string
-}
-
-type DocumentCollection struct {
-	DocumentID   string `gorm:"primaryKey"`
-	CollectionID string `gorm:"primaryKey"`
+	Collection   Collection `gorm:"foreignKey:CollectionID"`
+	Tags         []Tag      `gorm:"many2many:document_tags;"` // Relationship with Tag model
 }
 
 func (m *Document) TableName() string {

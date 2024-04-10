@@ -19,6 +19,13 @@ var repositorySet = wire.NewSet(
 	repository.NewRepository,
 	repository.NewUserRepository,
 	repository.NewProfileRepository,
+	repository.NewWorkspaceRepository,
+	repository.NewDocumentRepository,
+	repository.NewCollectionRepository,
+	repository.NewTagRepository,
+	repository.NewCommentRepository,
+	repository.NewDocumentTagRepository,
+	repository.NewCollectionTagRepository,
 )
 var serverSet = wire.NewSet(
 	server.NewMigrate,

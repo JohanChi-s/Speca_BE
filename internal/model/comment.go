@@ -7,10 +7,12 @@ import (
 type Comment struct {
 	ID              string `gorm:"primaryKey"`
 	Content         string
-	CreatedAt       time.Time
+	CreatedAt       time.Time `gorm:"default:now()"`
 	UpdatedAt       time.Time `gorm:"autoUpdateTime"`
 	UserID          string
+	User            User `gorm:"foreignKey:UserID"`
 	DocumentID      string
+	Document        Document `gorm:"foreignKey:DocumentID"`
 	ParentCommentID string
 }
 

@@ -711,3 +711,27 @@ core_service/internal/server.(*Migrate).Start
 core_service/pkg/app.(*App).Run.func1
 	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
 2024-04-10 15:39:13.738901000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:34	AutoMigrate stop
+2024-04-10 16:30:05.158263000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:42	server start	{"host": "http://127.0.0.1:8000"}
+2024-04-10 16:30:05.158904000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/cmd/server/main.go:43	docs addr	{"addr": "http://127.0.0.1:8000/swagger/index.html"}
+2024-04-10 16:30:07.415607000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:57	Shutting down server...
+2024-04-10 16:30:07.416148000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/server/http/http.go:67	Server exiting
+2024-04-10 16:30:12.976517000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:29	AutoMigrate success
+2024-04-10 16:31:29.496167000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:29	AutoMigrate success
+2024-04-10 16:35:20.487809000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:35	user migrate error	{"error": "invalid field found for struct core_service/internal/model.ActionEvent's field Assignee: define a valid foreign key for relations or implement the Valuer/Scanner interface"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:35
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 16:35:45.831945000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:43	AutoMigrate stop
+2024-04-10 16:37:43.448007000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:35	user migrate error	{"error": "invalid field found for struct core_service/internal/model.Collection's field Workspace: define a valid foreign key for relations or implement the Valuer/Scanner interface"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:35
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 16:38:34.008678000	[31merror[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:36	user migrate error	{"error": "invalid field found for struct core_service/internal/model.Collection's field Workspace: define a valid foreign key for relations or implement the Valuer/Scanner interface"}
+core_service/internal/server.(*Migrate).Start
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:36
+core_service/pkg/app.(*App).Run.func1
+	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/pkg/app/app.go:49
+2024-04-10 16:38:54.117899000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:44	AutoMigrate stop
+2024-04-10 16:41:25.132863000	[34minfo[0m	/Users/nguyenquanghoang/Workspaces/FullStack/specartisan/core_service/internal/server/migration.go:39	AutoMigrate success

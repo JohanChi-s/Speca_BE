@@ -14,19 +14,11 @@ type Team struct {
 	CanShare        bool
 	InviteRequired  bool
 	DefaultUserRole string
-	CreatedAt       time.Time
+	CreatedAt       time.Time `gorm:"default:now()"`
 	UpdatedAt       time.Time `gorm:"autoUpdateTime"`
-	URL             string
-}
-
-type TeamWorkspace struct {
-	TeamID      string `gorm:"primaryKey"`
-	WorkspaceID string `gorm:"primaryKey"`
-}
-
-type TeamDocument struct {
-	TeamID     string `gorm:"primaryKey"`
-	DocumentID string `gorm:"primaryKey"`
+	Documents       []Document
+	WorkspaceID     string
+	Workspace       Workspace `gorm:"foreignKey:WorkspaceID"`
 }
 
 func (m *Team) TableName() string {

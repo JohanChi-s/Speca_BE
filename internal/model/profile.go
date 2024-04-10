@@ -5,16 +5,17 @@ import (
 )
 
 type Profile struct {
-	ID        string    `gorm:"primaryKey;column:id"`
-	UserID    string    `gorm:"uniqueIndex;column:userId"`
-	FullName  string    `gorm:"column:fullName"`
-	Age       int       `gorm:"column:age"`
-	Address   string    `gorm:"column:address"`
-	AvatarURL string    `gorm:"column:avatarUrl"`
-	CreatedAt time.Time `gorm:"column:createdAt;autoCreateTime"`
-	UpdatedAt time.Time `gorm:"autoUpdateTime;column:updatedAt"`
+	ID        string `gorm:"primaryKey"`
+	UserID    string `gorm:"unique"`
+	FullName  string
+	Age       int
+	Address   string
+	AvatarURL string
+	CreatedAt time.Time `gorm:"default:now()"`
+	UpdatedAt time.Time `gorm:"autoUpdateTime"`
+	User      User      `gorm:"foreignKey:UserID"`
 }
 
 func (m *Profile) TableName() string {
-	return "Profile"
+	return "profile"
 }

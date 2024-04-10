@@ -7,14 +7,14 @@ import (
 type ActionEvent struct {
 	ID           string `gorm:"primaryKey"`
 	Action       string
-	CreatedAt    time.Time
+	CreatedAt    time.Time `gorm:"default:now()"`
 	Actor        string
-	Assignee     string
-	Assigner     string
+	AssigneeID   string // Foreign key column
+	Assignee     User   `gorm:"foreignKey:AssigneeID"` // Foreign key relationship
+	AssignerID   string // Foreign key column
+	Assigner     User
 	DocumentID   string
+	Document     Document `gorm:"foreignKey:DocumentID"`
 	CollectionID string
-}
-
-func (m *ActionEvent) TableName() string {
-	return "action_event"
+	Collection   Collection `gorm:"foreignKey:CollectionID"`
 }
