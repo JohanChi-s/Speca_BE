@@ -10,10 +10,10 @@ definitions:
     type: object
   core_service_api_v1.GetProfileResponseData:
     properties:
-      Username:
-        example: alan
-        type: string
       userId:
+        type: string
+      username:
+        example: alan
         type: string
     type: object
   core_service_api_v1.LoginRequest:
@@ -62,6 +62,26 @@ definitions:
       message:
         type: string
     type: object
+  core_service_api_v1.UpdateProfileRequest:
+    properties:
+      email:
+        example: 1234@gmail.com
+        type: string
+      username:
+        example: alan
+        type: string
+    required:
+    - email
+    type: object
+  core_service_api_v1.User:
+    properties:
+      email:
+        type: string
+      id:
+        type: integer
+      username:
+        type: string
+    type: object
 host: localhost:8000
 info:
   contact:
@@ -94,14 +114,14 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/core_service_api_v1.LoginResponse'
-      summary: 账号登录
+      summary: Account login
       tags:
-      - 用户模块
+      - User module
   /register:
     post:
       consumes:
       - application/json
-      description: 目前只支持邮箱登录
+      description: Currently only supports email login
       parameters:
       - description: params
         in: body
@@ -116,9 +136,9 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/core_service_api_v1.Response'
-      summary: 用户注册
+      summary: User registration
       tags:
-      - 用户模块
+      - User module
   /user:
     get:
       consumes:
@@ -132,9 +152,90 @@ paths:
             $ref: '#/definitions/core_service_api_v1.GetProfileResponse'
       security:
       - Bearer: []
-      summary: 获取用户信息
+      summary: Get user information
       tags:
-      - 用户模块
+      - User module
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: params
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/core_service_api_v1.UpdateProfileRequest'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/core_service_api_v1.Response'
+      security:
+      - Bearer: []
+      summary: Update user information
+      tags:
+      - User module
+  /user/{id}:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: user id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/core_service_api_v1.User'
+      security:
+      - Bearer: []
+      summary: Delete user information
+      tags:
+      - User module
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: user id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/core_service_api_v1.User'
+      security:
+      - Bearer: []
+      summary: Get user information
+      tags:
+      - User module
+  /user/me:
+    get:
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/core_service_api_v1.User'
+      security:
+      - Bearer: []
+      summary: Get user information
+      tags:
+      - User module
 securityDefinitions:
   Bearer:
     in: header

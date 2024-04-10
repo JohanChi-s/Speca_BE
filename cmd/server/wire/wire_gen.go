@@ -32,7 +32,8 @@ func NewWire(viperViper *viper.Viper, logger *log.Logger) (*app.App, func(), err
 	sidSid := sid.NewSid()
 	serviceService := service.NewService(transaction, logger, sidSid, jwtJWT)
 	userRepository := repository.NewUserRepository(repositoryRepository)
-	userService := service.NewUserService(serviceService, userRepository)
+	profileRepository := repository.NewProfileRepository(repositoryRepository)
+	userService := service.NewUserService(serviceService, userRepository, profileRepository)
 	userHandler := handler.NewUserHandler(handlerHandler, userService)
 	httpServer := server.NewHTTPServer(logger, viperViper, jwtJWT, userHandler)
 	job := server.NewJob(logger)
@@ -43,11 +44,11 @@ func NewWire(viperViper *viper.Viper, logger *log.Logger) (*app.App, func(), err
 
 // wire.go:
 
-var repositorySet = wire.NewSet(repository.NewDB, repository.NewRedis, repository.NewRepository, repository.NewTransaction, repository.NewUserRepository)
+var repositorySet = wire.NewSet(repository.NewDB, repository.NewRedis, repository.NewRepository, repository.NewTransaction, repository.NewUserRepository, repository.NewProfileRepository)
 
-var serviceSet = wire.NewSet(service.NewService, service.NewUserService)
+var serviceSet = wire.NewSet(service.NewService, service.NewUserService, service.NewProfileService)
 
-var handlerSet = wire.NewSet(handler.NewHandler, handler.NewUserHandler)
+var handlerSet = wire.NewSet(handler.NewHandler, handler.NewUserHandler, handler.NewProfileHandler)
 
 var serverSet = wire.NewSet(server.NewHTTPServer, server.NewJob)
 

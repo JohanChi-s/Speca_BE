@@ -36,7 +36,7 @@ type userRepository struct {
 }
 
 func (r *userRepository) Create(ctx context.Context, user *model.User) error {
-	if err := r.DB(ctx).Create(user).Error; err != nil {
+	if err := r.db.Create(user).Error; err != nil {
 		return err
 	}
 	return nil
@@ -62,7 +62,7 @@ func (r *userRepository) GetByID(ctx context.Context, userId string) (*model.Use
 
 func (r *userRepository) GetByEmail(ctx context.Context, email string) (*model.User, error) {
 	var user model.User
-	if err := r.DB(ctx).Where("email = ?", email).First(&user).Error; err != nil {
+	if err := r.db.Where("email = ?", email).First(&user).Error; err != nil {
 		if errors.Is(err, gorm.ErrRecordNotFound) {
 			return nil, nil
 		}

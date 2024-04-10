@@ -100,6 +100,17 @@ func (h *UserHandler) GetProfile(ctx *gin.Context) {
 	v1.HandleSuccess(ctx, user)
 }
 
+// UpdateProfile godoc
+// @Summary Update user information
+// @Schemes
+// @Description
+// @Tags User module
+// @Accept json
+// @Produce json
+// @Security Bearer
+// @Param request body v1.UpdateProfileRequest true "params"
+// @Success 200 {object} v1.Response
+// @Router /user [put]
 func (h *UserHandler) UpdateProfile(ctx *gin.Context) {
 	userId := GetUserIdFromCtx(ctx)
 
@@ -111,6 +122,86 @@ func (h *UserHandler) UpdateProfile(ctx *gin.Context) {
 
 	if err := h.userService.UpdateProfile(ctx, userId, &req); err != nil {
 		v1.HandleError(ctx, http.StatusInternalServerError, v1.ErrInternalServerError, nil)
+		return
+	}
+
+	v1.HandleSuccess(ctx, nil)
+}
+
+// GetUser godoc
+// @Summary Get user information
+// @Schemes
+// @Description
+// @Tags User module
+// @Accept json
+// @Produce json
+// @Security Bearer
+// @Success 200 {object} v1.User
+// @Router /user/me [get]
+func (h *UserHandler) GetMe(ctx *gin.Context) {
+	userId := GetUserIdFromCtx(ctx)
+	if userId == "" {
+		v1.HandleError(ctx, http.StatusUnauthorized, v1.ErrUnauthorized, nil)
+		return
+	}
+
+	user, err := h.userService.GetUser(ctx, userId)
+	if err != nil {
+		v1.HandleError(ctx, http.StatusBadRequest, v1.ErrBadRequest, nil)
+		return
+	}
+
+	v1.HandleSuccess(ctx, user)
+}
+
+// Get User By ID godoc
+// @Summary Get user information
+// @Schemes
+// @Description
+// @Tags User module
+// @Accept json
+// @Produce json
+// @Security Bearer
+// @Param id path string true "user id"
+// @Success 200 {object} v1.User
+// @Router /user/{id} [get]
+func (h *UserHandler) GetUserByID(ctx *gin.Context) {
+	userId := ctx.Param("id")
+	if userId == "" {
+		v1.HandleError(ctx, http.StatusBadRequest, v1.ErrBadRequest, nil)
+		return
+	}
+
+	user, err := h.userService.GetUser(ctx, userId)
+	if err != nil {
+		v1.HandleError(ctx, http.StatusBadRequest, v1.ErrBadRequest, nil)
+		return
+	}
+
+	v1.HandleSuccess(ctx, user)
+}
+
+// Delete User By ID godoc
+// @Summary Delete user information
+// @Schemes
+// @Description
+// @Tags User module
+// @Accept json
+// @Produce json
+// @Security Bearer
+// @Param id path string true "user id"
+// @Success 200 {object} v1.User
+// @Router /user/{id} [delete]
+func (h *UserHandler) DeleteUserByID(ctx *gin.Context) {
+	// get userId from params
+	userId := ctx.Param("id")
+	if userId == "" {
+		v1.HandleError(ctx, http.StatusUnauthorized, v1.ErrUnauthorized, nil)
+		return
+	}
+
+	if err := h.userService.DeleteUserByID(ctx, userId); err != nil {
+		v1.HandleError(ctx, http.StatusBadRequest, v1.ErrBadRequest, nil)
 		return
 	}
 

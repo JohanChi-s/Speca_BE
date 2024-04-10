@@ -5,20 +5,20 @@ import (
 )
 
 type User struct {
-	ID           string `gorm:"primaryKey"`
-	Email        string `gorm:"unique;not null"`
-	Username     string `gorm:"unique;not null"`
-	Password     string `gorm:"not null"`
-	FirstName    string
-	LastName     string
-	IsAdmin      bool
-	IsActive     bool
-	IsViewer     bool
-	Language     string
-	LastActiveAt time.Time
-	Roles        []byte
-	CreatedAt    time.Time
-	UpdatedAt    time.Time `gorm:"autoUpdateTime"`
+	ID           string    `gorm:"primaryKey column:id"`
+	Email        string    `gorm:"unique column:email"`
+	Username     string    `gorm:"unique column:username"`
+	Password     string    `gorm:"column:password"`
+	FirstName    string    `gorm:"column:firstName"`
+	LastName     string    `gorm:"column:lastName"`
+	IsAdmin      bool      `gorm:"column:isAdmin"`
+	IsActive     bool      `gorm:"column:isActive"`
+	IsViewer     bool      `gorm:"column:isViewer"`
+	Language     string    `gorm:"column:language"`
+	LastActiveAt time.Time `gorm:"column:lastActiveAt;default:now()"`
+	Roles        []string  `gorm:"type:text[]"`
+	CreatedAt    time.Time `gorm:"column:createdAt;default:now()"`
+	UpdatedAt    time.Time `gorm:"column:updatedAt;default:now()"`
 }
 
 type UserTeam struct {
@@ -37,5 +37,5 @@ type UserDocument struct {
 }
 
 func (u *User) TableName() string {
-	return "users"
+	return "User"
 }

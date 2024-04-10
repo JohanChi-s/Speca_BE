@@ -33,9 +33,9 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "用户模块"
+                    "User module"
                 ],
-                "summary": "账号登录",
+                "summary": "Account login",
                 "parameters": [
                     {
                         "description": "params",
@@ -59,7 +59,7 @@ const docTemplate = `{
         },
         "/register": {
             "post": {
-                "description": "目前只支持邮箱登录",
+                "description": "Currently only supports email login",
                 "consumes": [
                     "application/json"
                 ],
@@ -67,9 +67,9 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "用户模块"
+                    "User module"
                 ],
-                "summary": "用户注册",
+                "summary": "User registration",
                 "parameters": [
                     {
                         "description": "params",
@@ -105,14 +105,147 @@ const docTemplate = `{
                     "application/json"
                 ],
                 "tags": [
-                    "用户模块"
+                    "User module"
                 ],
-                "summary": "获取用户信息",
+                "summary": "Get user information",
                 "responses": {
                     "200": {
                         "description": "OK",
                         "schema": {
                             "$ref": "#/definitions/core_service_api_v1.GetProfileResponse"
+                        }
+                    }
+                }
+            },
+            "put": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User module"
+                ],
+                "summary": "Update user information",
+                "parameters": [
+                    {
+                        "description": "params",
+                        "name": "request",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/core_service_api_v1.UpdateProfileRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/core_service_api_v1.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/me": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User module"
+                ],
+                "summary": "Get user information",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/core_service_api_v1.User"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/{id}": {
+            "get": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User module"
+                ],
+                "summary": "Get user information",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "user id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/core_service_api_v1.User"
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "User module"
+                ],
+                "summary": "Delete user information",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "user id",
+                        "name": "id",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/core_service_api_v1.User"
                         }
                     }
                 }
@@ -137,12 +270,12 @@ const docTemplate = `{
         "core_service_api_v1.GetProfileResponseData": {
             "type": "object",
             "properties": {
-                "Username": {
-                    "type": "string",
-                    "example": "alan"
-                },
                 "userId": {
                     "type": "string"
+                },
+                "username": {
+                    "type": "string",
+                    "example": "alan"
                 }
             }
         },
@@ -210,6 +343,36 @@ const docTemplate = `{
                 },
                 "data": {},
                 "message": {
+                    "type": "string"
+                }
+            }
+        },
+        "core_service_api_v1.UpdateProfileRequest": {
+            "type": "object",
+            "required": [
+                "email"
+            ],
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "example": "1234@gmail.com"
+                },
+                "username": {
+                    "type": "string",
+                    "example": "alan"
+                }
+            }
+        },
+        "core_service_api_v1.User": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "username": {
                     "type": "string"
                 }
             }

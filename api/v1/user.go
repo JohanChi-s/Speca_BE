@@ -29,3 +29,9 @@ type GetProfileResponse struct {
 	Response
 	Data GetProfileResponseData
 }
+
+type User struct {
+	ID       int    `json:"id"`
+	Username string `json:"username"`
+	Email    string `json:"email"`
+}
