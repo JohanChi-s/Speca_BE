@@ -59,6 +59,10 @@ func StringToUint(str string) (uint, error) {
 		return 0, err
 	}
 
+	if parsed > uint64(^uint(0)) {
+	    return 0, errors.New("value out of range for uint")
+	}
+
 	// Convert the parsed uint64 to uint
 	result := uint(parsed)
 	return result, nil
