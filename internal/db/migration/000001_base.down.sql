@@ -1,6 +1,5 @@
 -- Drop foreign key constraints
 
-ALTER TABLE "User_Workspace" DROP CONSTRAINT "FK_User_Workspace_user_id_User_id";
 ALTER TABLE "User_Workspace" DROP CONSTRAINT "FK_User_Workspace_workspace_id_Workspace_id";
 
 ALTER TABLE "User_Document" DROP CONSTRAINT "FK_User_Document_user_id_User_id";

@@ -1,19 +1,18 @@
 package model
 
 import (
-	"time"
+	"gorm.io/gorm"
 )
 
 type Position struct {
-	ID         string `gorm:"primaryKey"`
-	Line       int
-	Col        int
-	ToLine     string
-	ToCol      string
-	Content    string
-	CreatedAt  time.Time
-	UpdatedAt  time.Time `gorm:"autoUpdateTime"`
-	CommentsID string
+	gorm.Model
+	Line      int
+	Col       int
+	ToLine    string
+	ToCol     string
+	Content   string
+	CommentID uint
+	Comment   Comment `gorm:"foreignKey:CommentID"`
 }
 
 func (m *Position) TableName() string {

@@ -24,16 +24,38 @@ var repositorySet = wire.NewSet(
 	repository.NewRepository,
 	repository.NewTransaction,
 	repository.NewUserRepository,
+	repository.NewProfileRepository,
+	repository.NewWorkspaceRepository,
+	repository.NewDocumentRepository,
+	repository.NewTagRepository,
+	repository.NewCommentRepository,
+	repository.NewTeamRepository,
+	repository.NewPositionRepository,
+	repository.NewMemberRepository,
 )
 
 var serviceSet = wire.NewSet(
 	service.NewService,
 	service.NewUserService,
+	service.NewProfileService,
+	service.NewWorkspaceService,
+	service.NewDocumentService,
+	service.NewTagService,
+	service.NewCommentService,
+	service.NewTeamService,
+	service.NewPositionService,
+	service.NewMemberService,
+	// service.NewAuthService, later
+	// service.NewJwtService,
+	// service.NewSidService,
+	// service.NewMailService,
+	// service.NewNotificationService,
 )
 
 var handlerSet = wire.NewSet(
 	handler.NewHandler,
 	handler.NewUserHandler,
+	handler.NewProfileHandler,
 )
 
 var serverSet = wire.NewSet(

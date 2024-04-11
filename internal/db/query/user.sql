@@ -51,3 +51,4 @@ WHERE "id" = $1;
 -- name: DeleteUser :exec
 DELETE FROM "User"
 WHERE "id" = $1;
+

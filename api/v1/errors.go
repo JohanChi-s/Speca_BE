@@ -2,7 +2,7 @@ package v1
 
 var (
 	// common errors
-	ErrSuccess             = newError(0, "ok")
+	ErrSuccess             = newError(201, "ok")
 	ErrBadRequest          = newError(400, "Bad Request")
 	ErrUnauthorized        = newError(401, "Unauthorized")
 	ErrNotFound            = newError(404, "Not Found")

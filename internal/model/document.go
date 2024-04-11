@@ -1,27 +1,21 @@
 package model
 
 import (
-	"time"
+	"gorm.io/gorm"
 )
 
 type Document struct {
-	ID           string `gorm:"primaryKey"`
+	gorm.Model
 	Title        string
 	Text         string
 	Emoji        string
 	IsPublic     bool
 	IsFullWidth  bool
-	CreatedAt    time.Time
-	UpdatedAt    time.Time `gorm:"autoUpdateTime"`
-	AuthorID     string
-	TeamID       string
-	WorkspaceID  string
-	CollectionID string
-}
-
-type DocumentCollection struct {
-	DocumentID   string `gorm:"primaryKey"`
-	CollectionID string `gorm:"primaryKey"`
+	AuthorID     *uint `gorm:"nullable" default:"NULL"`
+	TeamID       *uint `gorm:"nullable"`
+	WorkspaceID  *uint `gorm:"nullable"`
+	CollectionID *uint `gorm:"nullable"`
+	Tags         []Tag `gorm:"many2many:document_tags;"` // Relationship with Tag model
 }
 
 func (m *Document) TableName() string {

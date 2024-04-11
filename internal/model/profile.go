@@ -1,18 +1,17 @@
 package model
 
 import (
-	"time"
+	"gorm.io/gorm"
 )
 
 type Profile struct {
-	ID        string `gorm:"primaryKey"`
-	UserID    string `gorm:"uniqueIndex"`
+	gorm.Model
+	UserID    uint `gorm:"unique"`
 	FullName  string
 	Age       int
 	Address   string
 	AvatarURL string
-	CreatedAt time.Time
-	UpdatedAt time.Time `gorm:"autoUpdateTime"`
+	User      User `gorm:"foreignKey:UserID"`
 }
 
 func (m *Profile) TableName() string {

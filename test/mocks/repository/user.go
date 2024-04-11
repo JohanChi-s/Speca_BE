@@ -64,7 +64,7 @@ func (mr *MockUserRepositoryMockRecorder) CreateUser(ctx, user interface{}) *gom
 }
 
 // DeleteUser mocks base method.
-func (m *MockUserRepository) DeleteUser(ctx context.Context, id string) error {
+func (m *MockUserRepository) DeleteUser(ctx context.Context, id uint) error {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "DeleteUser", ctx, id)
 	ret0, _ := ret[0].(error)
@@ -108,7 +108,7 @@ func (mr *MockUserRepositoryMockRecorder) GetByEmail(ctx, email interface{}) *go
 }
 
 // GetByID mocks base method.
-func (m *MockUserRepository) GetByID(ctx context.Context, id string) (*model.User, error) {
+func (m *MockUserRepository) GetByID(ctx context.Context, id uint) (*model.User, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetByID", ctx, id)
 	ret0, _ := ret[0].(*model.User)
@@ -153,7 +153,7 @@ func (mr *MockUserRepositoryMockRecorder) GetUserByRefreshToken(ctx, refreshToke
 }
 
 // GetUserByUserID mocks base method.
-func (m *MockUserRepository) GetUserByUserID(ctx context.Context, userID string) (*model.User, error) {
+func (m *MockUserRepository) GetUserByUserID(ctx context.Context, userID uint) (*model.User, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetUserByUserID", ctx, userID)
 	ret0, _ := ret[0].(*model.User)
@@ -183,7 +183,7 @@ func (mr *MockUserRepositoryMockRecorder) GetUserByUsername(ctx, username interf
 }
 
 // GetUserByWorkspaceID mocks base method.
-func (m *MockUserRepository) GetUserByWorkspaceID(ctx context.Context, workspaceID string) (*model.User, error) {
+func (m *MockUserRepository) GetUserByWorkspaceID(ctx context.Context, workspaceID uint) (*model.User, error) {
 	m.ctrl.T.Helper()
 	ret := m.ctrl.Call(m, "GetUserByWorkspaceID", ctx, workspaceID)
 	ret0, _ := ret[0].(*model.User)

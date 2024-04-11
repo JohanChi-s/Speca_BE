@@ -20,6 +20,11 @@ func NewHTTPServer(
 	conf *viper.Viper,
 	jwt *jwt.JWT,
 	userHandler *handler.UserHandler,
+	// teamHandler *handler.TeamHandler,
+	// workspaceHandler *handler.WorkspaceHandler,
+	// documentHandler *handler.DocumentHandler,
+	// memberHanler *handler.MemberHandler,
+	// actionEventHandler *handler.ActionEventHandler,
 ) *http.Server {
 	gin.SetMode(gin.DebugMode)
 	s := http.NewServer(
@@ -33,7 +38,7 @@ func NewHTTPServer(
 	docs.SwaggerInfo.BasePath = "/v1"
 	s.GET("/swagger/*any", ginSwagger.WrapHandler(
 		swaggerfiles.Handler,
-		//ginSwagger.URL(fmt.Sprintf("http://localhost:%d/swagger/doc.json", conf.GetInt("app.http.port"))),
+		// ginSwagger.URL(fmt.Sprintf("http://localhost:%d/swagger/doc.json", conf.GetInt("app.http.port"))),
 		ginSwagger.DefaultModelsExpandDepth(-1),
 	))
 
@@ -59,9 +64,14 @@ func NewHTTPServer(
 			noAuthRouter.POST("/login", userHandler.Login)
 		}
 		// Non-strict permission routing group
-		noStrictAuthRouter := v1.Group("/").Use(middleware.NoStrictAuth(jwt, logger))
+		v1.Group("/").Use(middleware.NoStrictAuth(jwt, logger))
 		{
-			noStrictAuthRouter.GET("/user", userHandler.GetProfile)
+			userRouter := v1.Group("/user").Use(middleware.NoStrictAuth(jwt, logger))
+			{
+				userRouter.GET("/:id", userHandler.GetUserByID)
+				userRouter.PUT("/:id", userHandler.UpdateProfile)
+				userRouter.DELETE("/:id", userHandler.DeleteUserByID)
+			}
 		}
 
 		// Strict permission routing group

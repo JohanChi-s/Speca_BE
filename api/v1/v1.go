@@ -2,8 +2,10 @@ package v1
 
 import (
 	"errors"
-	"github.com/gin-gonic/gin"
 	"net/http"
+	"strconv"
+
+	"github.com/gin-gonic/gin"
 )
 
 type Response struct {
@@ -48,4 +50,20 @@ func newError(code int, msg string) error {
 }
 func (e Error) Error() string {
 	return e.Message
+}
+
+func StringToUint(str string) (uint, error) {
+	// ParseUint will return a uint64
+	parsed, err := strconv.ParseUint(str, 10, 64)
+	if err != nil {
+		return 0, err
+	}
+
+	if parsed > uint64(^uint(0)) {
+	    return 0, errors.New("value out of range for uint")
+	}
+
+	// Convert the parsed uint64 to uint
+	result := uint(parsed)
+	return result, nil
 }

@@ -1,30 +1,25 @@
 package model
 
 import (
-	"time"
+	"gorm.io/gorm"
 )
 
 type Collection struct {
-	ID                 string `gorm:"primaryKey"`
+	gorm.Model
 	Name               string
 	Description        string
 	Icon               string
 	IsSaving           bool
 	CanShare           bool
-	ChildCollectionIDs string
-	DownloadPermission []byte
-	CreatedAt          time.Time
-	UpdatedAt          time.Time `gorm:"autoUpdateTime"`
-	WorkspaceID        string
-	ParentCollectionID string
-	OwnerUserID        string
-}
-
-type CollectionMember struct {
-	CollectionID string `gorm:"primaryKey"`
-	MemberID     string `gorm:"primaryKey"`
+	DownloadPermission []string `gorm:"type:text[]"`
+	WorkspaceID        uint
+	Workspace          Workspace
+	ParentCollectionID uint
+	UserID             uint
+	User               User  `gorm:"foreignKey:UserID"`
+	Tags               []Tag `gorm:"many2many:collection_tags;"` // Relationship with Tag model
 }
 
 func (m *Collection) TableName() string {
-	return "collection"
+	return "collections"
 }

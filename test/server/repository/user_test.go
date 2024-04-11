@@ -44,12 +44,9 @@ func TestUserRepository_Create(t *testing.T) {
 
 	ctx := context.Background()
 	user := &model.User{
-		ID:        "123",
-		Username:  "Test",
-		Password:  "password",
-		Email:     "test@example.com",
-		CreatedAt: time.Now(),
-		UpdatedAt: time.Now(),
+		Username: "Test",
+		Password: "password",
+		Email:    "test@example.com",
 	}
 
 	mock.ExpectBegin()
@@ -69,12 +66,9 @@ func TestUserRepository_Update(t *testing.T) {
 
 	ctx := context.Background()
 	user := &model.User{
-		ID:        "123",
-		Username:  "Test",
-		Password:  "password",
-		Email:     "test@example.com",
-		CreatedAt: time.Now(),
-		UpdatedAt: time.Now(),
+		Username: "Test",
+		Password: "password",
+		Email:    "test@example.com",
 	}
 	mock.ExpectBegin()
 	mock.ExpectExec("UPDATE `users`").WillReturnResult(sqlmock.NewResult(1, 1))
@@ -90,16 +84,16 @@ func TestUserRepository_GetById(t *testing.T) {
 	userRepo, mock := setupRepository(t)
 
 	ctx := context.Background()
-	userId := "123"
+	var userId uint = 123
 
 	rows := sqlmock.NewRows([]string{"id", "username", "password", "email", "created_at", "updated_at"}).
-		AddRow(1, "123", "test", "Test", "password", "test@example.com", time.Now(), time.Now())
+		AddRow(1, 123, "test", "Test", "password", "test@example.com", time.Now(), time.Now())
 	mock.ExpectQuery("SELECT \\* FROM `users`").WillReturnRows(rows)
 
 	user, err := userRepo.GetByID(ctx, userId)
 	assert.NoError(t, err)
 	assert.NotNil(t, user)
-	assert.Equal(t, "123", user.ID)
+	assert.Equal(t, 123, user.ID)
 
 	assert.NoError(t, mock.ExpectationsWereMet())
 }
@@ -111,7 +105,7 @@ func TestUserRepository_GetByUsername(t *testing.T) {
 	email := "test@example.com"
 
 	rows := sqlmock.NewRows([]string{"id", "user_id", "username", "Username", "password", "email", "created_at", "updated_at"}).
-		AddRow(1, "123", "test", "Test", "password", "test@example.com", time.Now(), time.Now())
+		AddRow(1, 123, "test", "Test", "password", "test@example.com", time.Now(), time.Now())
 	mock.ExpectQuery("SELECT \\* FROM `users`").WillReturnRows(rows)
 
 	user, err := userRepo.GetByEmail(ctx, email)

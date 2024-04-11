@@ -1,20 +1,19 @@
 package model
 
 import (
-	"time"
+	"gorm.io/gorm"
 )
 
 type ActionEvent struct {
-	ID           string `gorm:"primaryKey"`
+	gorm.Model
 	Action       string
-	CreatedAt    time.Time
 	Actor        string
-	Assignee     string
-	Assigner     string
-	DocumentID   string
-	CollectionID string
-}
-
-func (m *ActionEvent) TableName() string {
-	return "action_event"
+	AssigneeID   uint // Foreign key column
+	Assignee     User `gorm:"foreignKey:AssigneeID"` // Foreign key relationship
+	AssignerID   uint // Foreign key column
+	Assigner     User
+	DocumentID   uint
+	Document     Document `gorm:"foreignKey:DocumentID"`
+	CollectionID uint
+	Collection   Collection `gorm:"foreignKey:CollectionID"`
 }
